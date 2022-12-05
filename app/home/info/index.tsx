@@ -5,7 +5,7 @@ import Document from "../../../components/Icons/Document/Document";
 import Input from "../../../components/Input/Input";
 import Upload from "../../../components/Icons/upload";
 import { primaryColor } from "../../../abstracts/colors";
-import styles from "./Info.module.scss";
+import styles from "./info.module.scss";
 
 //TODO: Fix ref typescript type
 // eslint-disable-next-line react/display-name

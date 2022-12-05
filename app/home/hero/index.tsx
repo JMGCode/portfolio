@@ -2,7 +2,7 @@ import ArrowDownCircle from "../../../components/Icons/arrowDownCircle";
 import Button from "../../../components/Button/Button";
 import { FC } from "react";
 import { primaryColor } from "../../../abstracts/colors";
-import styles from "./Hero.module.scss";
+import styles from "./hero.module.scss";
 
 interface heroProps {
   onClick: Function;

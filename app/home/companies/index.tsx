@@ -1,7 +1,7 @@
 import Dribbble from "../../../components/Icons/dribbble";
 import Instagram from "../../../components/Icons/instagram";
 import Twitter from "../../../components/Icons/twitter";
-import styles from "./Companies.module.scss";
+import styles from "./companies.module.scss";
 
 export const Companies = () => (
   <div className={styles.container}>
