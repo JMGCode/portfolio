@@ -15,11 +15,11 @@ const Home = () => {
     const header = document.querySelector("nav");
     const linkOffset = worksRef.current?.offsetTop || 0;
     let headerOffset = header?.offsetHeight || 0;
-    if (headerOffset < 80) {
-      headerOffset = 32;
-    }
+
+    const sectionOffset = headerOffset < 90 ? 96 : 128;
+
     window.scrollTo({
-      top: linkOffset - headerOffset - 128,
+      top: linkOffset - headerOffset - sectionOffset,
       behavior: "smooth",
     });
   };
