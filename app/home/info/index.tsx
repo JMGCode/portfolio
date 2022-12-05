@@ -73,7 +73,7 @@ const Info = forwardRef((props, ref) => {
   };
   return (
     //@ts-ignore
-    <div ref={ref} className={styles.container}>
+    <div ref={ref} className={styles.container} id="info-section">
       <div className={styles.text}>
         <h2 className="font-medium-bold">{`I'm currently available for freelance work`}</h2>
         <p>
