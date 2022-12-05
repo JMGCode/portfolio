@@ -4,7 +4,6 @@ import Dribbble from "../../components/Icons/dribbble";
 import Instagram from "../../components/Icons/instagram";
 import Logo from "../../components/Icons/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
-import Separator from "../../components/Separator/Separator";
 import Twitter from "../../components/Icons/twitter";
 import { navbarItems } from "../../navbarItems";
 import { primaryColor } from "../../abstracts/colors";
@@ -24,8 +23,12 @@ const Header = () => {
               className={styles["font-small"]}
               style={{ color: primaryColor, textDecoration: "none" }}
               onClick={() => {
+                const infoSection = document.getElementById("info-section");
+                const offsetHeight =
+                  document.body.scrollHeight - infoSection!!.scrollHeight - 96;
+
                 window.scrollTo({
-                  top: document.body.scrollHeight,
+                  top: offsetHeight,
                   behavior: "smooth",
                 });
               }}
