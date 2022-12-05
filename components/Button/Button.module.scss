@@ -24,12 +24,14 @@
 }
 
 .container.primary:hover:enabled {
-  opacity: 0.8;
+  background-color: rgba(142, 140, 140, 0.3);
+  background-blend-mode: lighten;
   cursor: pointer;
 }
 
 .container.primary:active:enabled {
-  opacity: 0.9;
+  background-color: rgba(142, 140, 140, 0.6);
+  background-blend-mode: lighten;
 }
 
 .container.primary:disabled {
