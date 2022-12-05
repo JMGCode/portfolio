@@ -1,0 +1,17 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+@media screen and (max-width: 900px) {
+  .layout-container {
+    gap: 96px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .layout-container {
+    gap: 64px;
+  }
+}

@@ -1,0 +1,21 @@
+$primary-color: rgba(252, 58, 121, 1);
+$secondary-color: rgba(254, 87, 46, 1);
+$primary-disabled: rgba(148, 100, 116, 1);
+$brand-gradient: linear-gradient(
+  90deg,
+  rgba(254, 87, 46, 1) 0%,
+  rgba(252, 58, 121, 1) 100%
+);
+$black-100: hsla(334, 10%, 14%, 1);
+$black-75: hsla(334, 10%, 14%, 0.75);
+$black-50: hsla(334, 10%, 14%, 0.5);
+$black-25: hsla(334, 10%, 14%, 0.25);
+$black-10: hsla(334, 10%, 14%, 0.1);
+$black-5: hsla(334, 10%, 14%, 0.05);
+
+$white-100: hsla(0, 0%, 100%, 1);
+$white-75: hsla(0, 0%, 100%, 0.75);
+$white-50: hsla(0, 0%, 100%, 0.5);
+$white-25: hsla(0, 0%, 100%, 0.25);
+$white-10: hsla(0, 0%, 100%, 0.1);
+$white-5: hsla(0, 0%, 100%, 0.05);

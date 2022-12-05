@@ -1,0 +1,58 @@
+@use "../../abstracts/" as *;
+
+.logo-link {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 64px;
+  border-bottom: 1px solid $black-10;
+  gap: 64px;
+  position: sticky;
+  background-color: white;
+  top: 0;
+  z-index: 1;
+}
+
+.contact {
+  display: flex;
+  gap: 32px;
+}
+
+.contact p {
+  text-overflow: clip;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1400px) {
+  .container,
+  .content {
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .content svg,
+  .content .separator {
+    display: none;
+  }
+  .container {
+    padding: 0 32px;
+  }
+}
+
+// @media screen and (max-width: 650px) {
+//   .contact {
+//     // display: none;
+//   }
+// }

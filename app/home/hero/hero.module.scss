@@ -1,0 +1,30 @@
+@use "../../../abstracts/" as *;
+@import "rfs/scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  text-align: center;
+  padding: 0 32px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  align-items: center;
+  max-width: 531px;
+}
+
+.message p {
+  color: $black-75;
+}
+
+@media screen and (max-width: 720px) {
+  .message p {
+    @include font-size(getFontSize(-1));
+    line-height: getLineHeight(-1);
+  }
+}

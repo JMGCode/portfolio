@@ -1,0 +1,61 @@
+@use "../../abstracts/" as *;
+
+.input-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  top: 1rem;
+  transition: top 200ms;
+  padding: 0 2px;
+  color: $black-100;
+  font-weight: bold;
+}
+
+input {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: $black-10;
+  border-radius: 8px;
+  outline: none;
+  color: $black-100;
+}
+
+input:disabled {
+  color: $black-50;
+  background-color: $black-5;
+  border: 2px solid $black-10;
+}
+
+input:disabled + label {
+  color: $black-50;
+}
+
+input:focus:enabled {
+  border: 2px solid $black-25;
+  background-color: $black-5;
+}
+
+input:focus + label {
+  top: calc(-1rem - 2px);
+}
+
+input::placeholder {
+  opacity: 0;
+  transition: opacity 300ms;
+  font-size: 16px;
+}
+
+input:focus::placeholder {
+  opacity: 1;
+}
+
+input:not(:placeholder-shown) + label {
+  top: calc(-1rem - 2px);
+}

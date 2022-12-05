@@ -1,0 +1,33 @@
+@use "../../../abstracts/" as *;
+
+$lineHeight: 3px;
+$burger-width: 32px; //40
+$lineMargin: 5.75px; //10
+
+.hamburger {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 32px;
+  height: $lineHeight;
+  margin-block: $lineMargin;
+  border-radius: 4px;
+  transition: transform 0.5s, opacity 0.25s;
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(calc($lineHeight + $lineMargin)) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(calc(-1 * ($lineHeight + $lineMargin))) rotate(-45deg);
+}

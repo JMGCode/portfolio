@@ -1,0 +1,82 @@
+@use "../../../abstracts/" as *;
+@import "rfs/scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  padding: 0 32px;
+  width: 100%;
+  max-width: 640px;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.contact {
+  display: flex;
+  gap: 16px;
+  font-weight: bold;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 720px) {
+  .text p {
+    @include font-size(getFontSize(-1));
+    line-height: getLineHeight(-1);
+  }
+
+  .contact {
+    flex-direction: column;
+  }
+}
+
+//=======
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  outline: none;
+}
+
+.inputlabel {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: $black-75;
+  background-color: white;
+  display: inline-block;
+  width: 200px;
+  cursor: pointer;
+  // border: 1px solid $primary-color;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
+  width: 100%;
+  padding: 40px 0;
+  // background-color: transparent;
+  border-radius: 25px;
+  // /outline: $black-75 dotted 2px;
+  outline-color: $primary-color;
+  outline-width: 5px;
+  outline-style: dashed;
+}
+
+// .inputfile:focus + .inputlabel,
+// .inputfile + .inputlabel:hover {
+//   background-color: red;
+// }
+
+// .inputfile:focus + .inputlabel {
+//   // outline: $primary-color dashed 2px;
+//   outline-color: $primary-color;
+//   outline-width: 5px;
+//   outline-style: dashed;
+//   // outline: -webkit-focus-ring-color auto 5px;
+// }

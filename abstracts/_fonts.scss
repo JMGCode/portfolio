@@ -1,0 +1,13 @@
+@use "sass:math";
+
+$font-ratio: 1.414;
+$height-line-ratio: 1.2;
+
+@function getFontSize($scale) {
+  @return calc(1rem * math.pow($font-ratio, $scale));
+}
+
+@function getLineHeight($scale) {
+  $size: getFontSize($scale);
+  @return $size * $height-line-ratio;
+}

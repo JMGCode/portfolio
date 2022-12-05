@@ -1,0 +1,19 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 128px;
+  // gap: 256px;
+}
+
+@media screen and (max-width: 1200px) {
+  .home {
+    gap: 128px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .home {
+    gap: 96px;
+  }
+}

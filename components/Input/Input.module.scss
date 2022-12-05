@@ -1,0 +1,77 @@
+@use "../../abstracts/" as *;
+@import "rfs/scss";
+
+.input-container {
+  // width: 280px;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  // left: 10px;
+  left: 5px;
+  top: 18px;
+  // top: 1rem;
+  transition: all 0.2s;
+  padding: 0 2px;
+  z-index: 1;
+  color: black;
+  // color: #b3b3b3;
+}
+.text-input {
+  padding: 0.8rem;
+  width: 100%;
+  height: 100%;
+  border: 2px solid $black-75;
+  // border: 2px solid #2f2c45;
+  // background: #272530;
+  background: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.3s;
+  color: $black-100;
+  // margin: 21px 0;
+}
+
+.label::before {
+  content: "";
+  height: 5px;
+  background: #fff;
+  // background: #272530;
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  width: 100%;
+  z-index: -1;
+}
+
+.text-input:focus {
+  border: 2px solid $primary-color;
+  // border: 2px solid #7e4ccb;
+}
+
+.text-input:focus + .label {
+  top: -10px;
+  color: $primary-color;
+  font-size: 21px;
+}
+
+.text-input::placeholder {
+  font-size: 16px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.text-input:focus::placeholder {
+  opacity: 1;
+}
+
+.text-input:not(:placeholder-shown) + .label {
+  top: -30px;
+  color: $primary-color;
+  font-size: 21px;
+}
+
+.text-input:not(:placeholder-shown) + .label::before {
+  background: transparent;
+}

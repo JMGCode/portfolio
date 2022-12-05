@@ -1,0 +1,24 @@
+@use "../../abstracts/" as *;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 64px;
+  border-top: 1px solid $black-10;
+}
+
+.copyright {
+  font-weight: lighter;
+  flex: 2;
+}
+
+.nav-container {
+  flex: 3;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 32px;
+  }
+}

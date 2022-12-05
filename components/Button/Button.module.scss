@@ -1,0 +1,64 @@
+@use "../../abstracts/" as *;
+@import "rfs/scss";
+
+.container {
+  display: flex;
+  gap: 16px;
+
+  font-weight: bold;
+  max-width: fit-content;
+  border-radius: 6rem;
+  border: none;
+  align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  @include padding(24px 48px);
+  @include font-size(getFontSize(0));
+}
+
+.container.primary {
+  color: white;
+  fill: white;
+  background: $brand-gradient;
+}
+
+.container.primary:hover:enabled {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.container.primary:active:enabled {
+  opacity: 0.9;
+}
+
+.container.primary:disabled {
+  background: $primary-disabled;
+}
+
+.container.secondary {
+  color: $black-75;
+  fill: $black-75;
+  background-color: white;
+  border: 4px solid $black-100;
+}
+
+.container.secondary:hover:enabled {
+  cursor: pointer;
+  color: $white-75;
+  fill: $white-75;
+  background: $black-100;
+}
+
+.container.secondary:active:enabled {
+  color: $white-75;
+  fill: $white-75;
+  background: $black-75;
+}
+
+.container.secondary:disabled {
+  border: 4px solid $black-75;
+  background: $black-25;
+  color: $black-50;
+  fill: $black-50;
+}

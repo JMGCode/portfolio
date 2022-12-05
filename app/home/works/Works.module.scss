@@ -1,0 +1,68 @@
+@use "../../../abstracts/" as *;
+@import "rfs/scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 128px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  max-width: 487px;
+}
+
+.text p {
+  color: $black-75;
+}
+
+.list-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 256px;
+}
+
+.image-background {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  width: calc(100% - (128px * 2));
+  background-color: yellowgreen;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1200px) {
+  .list-container {
+    gap: 160px;
+  }
+
+  .image-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .list-container {
+    gap: 96px;
+  }
+
+  .text p {
+    padding: 0 32px;
+    @include font-size(getFontSize(-1));
+    line-height: getLineHeight(-1);
+  }
+}
