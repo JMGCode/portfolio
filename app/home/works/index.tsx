@@ -1,5 +1,5 @@
 import { FC, forwardRef } from "react";
-import { greenImg, pinkImg, purpleImg } from "../../../assets/imgs";
+import { greenLofi, pinkLofi, purpleLofi } from "../../../assets/imgs";
 
 import Image from "next/image";
 import { StaticImageData } from "next/image";
@@ -16,17 +16,17 @@ const workData: IWorkImageProps[] = [
   {
     id: "b6a6db10-f0ca-430d-8d67-22d1eea99f29",
     backgroundColor: "#AF94F8",
-    image: purpleImg,
+    image: purpleLofi,
   },
   {
     id: "eea01df9-bedf-4ccb-adcb-c84a0a23a01e",
     backgroundColor: "#55AF33",
-    image: greenImg,
+    image: greenLofi,
   },
   {
     id: "b67f4e3b-a693-4391-af5f-335ac52e5806",
     backgroundColor: "#EE93AD",
-    image: pinkImg,
+    image: pinkLofi,
   },
 ];
 
