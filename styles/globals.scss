@@ -98,3 +98,7 @@ p {
   @include font-size(getFontSize(-1));
   @include rfs(getLineHeight(-1), line-height);
 }
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}
