@@ -1,7 +1,7 @@
 "use client";
 
-import Dribbble from "../../components/Icons/dribbble";
-import Instagram from "../../components/Icons/instagram";
+import GitHub from "../../components/Icons/github";
+import LinkedIn from "../../components/Icons/linkedIn";
 import Logo from "../../components/Icons/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
 import Twitter from "../../components/Icons/twitter";
@@ -10,9 +10,20 @@ import { primaryColor } from "../../abstracts/colors";
 import styles from "./Header.module.scss";
 
 const Header = () => {
+  const handleScrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const openLinkTab = (url: string) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles["logo-link"]}>
+      <div className={styles["logo-link"]} onClick={handleScrollTop}>
         <Logo />
       </div>
 
@@ -33,15 +44,25 @@ const Header = () => {
                 });
               }}
             >
-              {/* hello@jmgcode.com */}
               CONTACT
             </div>
-            {/* <p className="font-small">(+52) 81-1537-8739</p> */}
           </div>
-          {/* <Separator direction="vertical" lenght="16px" thickness="1px" /> */}
-          <Twitter />
-          <Dribbble />
-          <Instagram />
+          <Twitter
+            className="cursor-pointer"
+            onClick={() => openLinkTab("https://twitter.com/JMGCode")}
+          />
+          <GitHub
+            className="cursor-pointer"
+            onClick={() => openLinkTab("https://github.com/JMGCode")}
+          />
+          <LinkedIn
+            className="cursor-pointer"
+            onClick={() =>
+              openLinkTab(
+                "https://linkedin.com/in/jesus-mezquiti-guerrero-00b93885"
+              )
+            }
+          />
         </div>
       </Navbar>
     </div>
