@@ -2,7 +2,7 @@ type iconTypes = "doc" | "pdf" | "img";
 const Document = ({
   size = "32",
   color = "white",
-  icon = "doc" as iconTypes,
+  icon = "img" as iconTypes,
   onClick = () => {},
 }) => {
   const iconType = {
