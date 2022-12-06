@@ -124,6 +124,7 @@ const Info = forwardRef((props, ref) => {
               name="attachment"
               id="attachment"
               multiple
+              accept="image/*,application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
               className={styles.inputfile}
               onChange={(e) => {
                 console.log("coca cola light", e.target.files);
@@ -153,19 +154,44 @@ const Info = forwardRef((props, ref) => {
                 }}
               >
                 {formState.files.map((file, index) => {
+                  const docType = file.type.includes("image")
+                    ? "img"
+                    : file.type.includes("pdf")
+                    ? "pdf"
+                    : "doc";
+
                   return (
                     <div
                       key={file.name + "-" + index}
                       style={{
                         display: "flex",
-                        gap: "10px",
-                        backgroundColor: "rgba(254, 87, 46, 0.4)",
+                        gap: "15px",
+                        // backgroundColor: "rgba(252, 58, 121, 1)",
+                        background:
+                          "linear-gradient(90deg,rgba(254, 87, 46, 1) 0%,rgba(252, 58, 121, 1) 100%)",
                         padding: "15px 20px",
                         borderRadius: "8px",
+                        alignItems: "center",
+                        justifyContent: "space-between",
                       }}
                     >
-                      <p>{file.name}</p>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "10px",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Document icon={docType} />
+                        <p style={{ color: "white", fontWeight: "bold" }}>
+                          {file.name}
+                        </p>
+                      </div>
                       <button
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                        }}
                         onClick={() => {
                           const files = formState.files;
                           files.splice(index, 1);
@@ -176,8 +202,7 @@ const Info = forwardRef((props, ref) => {
                           }));
                         }}
                       >
-                        delete
-                        <Document />
+                        <p style={{ color: "white", cursor: "pointer" }}>X</p>
                       </button>
                     </div>
                   );
