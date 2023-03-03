@@ -1,0 +1,63 @@
+@use "../../../abstracts/" as *;
+@import "rfs/scss";
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.message p {
+  color: $black-75;
+}
+.message li {
+  color: $black-75;
+}
+
+.tech-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 521px;
+  padding: 0 30px;
+}
+
+.tech-container > li::marker {
+  content: "› ";
+  color: $primary-color;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.list {
+  display: flex;
+  gap: 20px;
+}
+
+.item {
+  background-color: rgb(244, 244, 244);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.8em 2.6em;
+  border-radius: 0.4em;
+  gap: 0.6em;
+  font-weight: bold;
+  min-width: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  .message p {
+    @include font-size(getFontSize(-1));
+    line-height: getLineHeight(-1);
+  }
+  .item {
+    min-width: 0;
+    max-width: 120px;
+  }
+}
