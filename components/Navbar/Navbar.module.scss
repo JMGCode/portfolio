@@ -1,31 +1,7 @@
 @use "../../abstracts/" as *;
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex: 1;
   padding: 32px 0;
-}
-
-.items {
-  display: flex;
-  align-items: center;
-  gap: 64px;
-  font-weight: bold;
-  color: $black-100;
-  text-transform: uppercase;
-
-  text-overflow: clip;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.items .link {
-  text-decoration: none;
-  color: $black-100;
-  font-size: getFontSize(0) !important;
-  line-height: getLineHeight(0) !important;
 }
 
 .content {
@@ -40,48 +16,35 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .items {
-    gap: 32px;
-  }
-
   .content {
     gap: 32px;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   .menu {
     display: block;
-  }
-
-  .items {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: calc(100vw - 90px);
-
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 32px;
-    background-color: white;
-    gap: 16px;
-    transition: left 300ms ease-in;
-  }
-
-  .menu-active {
-    left: 0;
+    text-align: end;
   }
 
   .container {
     justify-content: end;
     padding: 16px 0;
   }
-}
 
-@media screen and (max-width: 375px) {
-  .items .link {
-    font-size: getFontSize(-1) !important;
-    line-height: getLineHeight(-1) !important;
+  .content {
+    position: absolute;
+    background-color: white;
+    height: 100vh;
+    max-width: 400px;
+    width: 100%;
+    top: 0;
+    right: -100%;
+    transition: right 500ms ease-in-out;
+    align-items: flex-start;
+    padding: 60px 20px 20px;
+  }
+  .content.menu-active {
+    right: 0;
   }
 }

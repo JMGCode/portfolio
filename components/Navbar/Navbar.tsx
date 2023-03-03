@@ -11,36 +11,30 @@ interface navbarProps {
     path: string;
   }[];
 }
-//TODO: fix links
+
 const Navbar: FC<PropsWithChildren<navbarProps>> = ({ items, children }) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleMenu = () => {
-    setIsActive((prev) => !prev);
+    setIsActive((prev) => {
+      if (!prev) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+      return !prev;
+    });
   };
 
   return (
     <nav className={styles.container}>
       <div
-        className={`${styles.items} ${isActive ? styles["menu-active"] : ""}`}
+        className={`${styles.content} ${isActive ? styles["menu-active"] : ""}`}
       >
-        {items.map((item) => {
-          return (
-            // <NavLink to={item.path} key={item.text} className="navbar-link">
-            //   {item.text}
-            // </NavLink>
-            <div className="link" key={item.path + item.text}>
-              {item.text}
-            </div>
-          );
-        })}
-      </div>
-      <div className={styles.content}>
         {children}
-
-        {/* <div className={styles.menu}>
-          <BurgerMenu onClick={handleMenu} isActive={isActive} />
-        </div> */}
+      </div>
+      <div className={styles.menu}>
+        <BurgerMenu onClick={handleMenu} isActive={isActive} />
       </div>
     </nav>
   );
