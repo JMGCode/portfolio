@@ -1,3 +1,5 @@
+"use client";
+
 import "../styles/globals.scss";
 
 import Head from "next/head";
@@ -27,6 +29,7 @@ export default function RootLayout({
           <Header />
           {children}
         </div>
+        <div id="myportal" />
       </body>
     </html>
   );
