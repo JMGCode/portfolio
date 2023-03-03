@@ -7,7 +7,10 @@
   gap: 32px;
   align-items: center;
   text-align: center;
-  padding: 0 32px;
+  // padding: 0 32px;
+  // height: 100vh;
+  height: calc(100vh - 96px);
+  justify-content: center;
 }
 
 .message {
