@@ -3,10 +3,7 @@
 
 .container {
   display: flex;
-  // background-color: aqua;
-  // flex-direction: column;
   gap: 96px;
-  // padding: 0 32px;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -16,9 +13,7 @@
 .text {
   display: flex;
   flex-direction: column;
-  // background-color: red;
   justify-content: center;
-  // flex: 9;
   align-items: center;
   text-align: center;
   max-width: 540px;
@@ -30,79 +25,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  // padding: 32px;
-  // flex: 8;
 }
 
 .col-2 {
   grid-column: span 2;
 }
 
-// .contact {
-//   display: flex;
-//   gap: 16px;
-//   font-weight: bold;
-//   text-overflow: clip;
-//   white-space: nowrap;
-// }
-
 @media screen and (max-width: 720px) {
   .text p {
     @include font-size(getFontSize(-1));
     line-height: getLineHeight(-1);
   }
-
-  // .contact {
-  //   flex-direction: column;
-  // }
 }
 
-//=======
-// .inputfile {
-//   width: 0.1px;
-//   height: 0.1px;
-//   opacity: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   z-index: -1;
-//   outline: none;
-// }
-
-// .inputlabel {
-//   font-size: 1.25em;
-//   font-weight: 700;
-//   color: $black-75;
-//   background-color: white;
-//   display: inline-block;
-//   width: 200px;
-//   cursor: pointer;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 20px;
-//   align-items: center;
-
-//   width: 100%;
-//   padding: 40px 10px;
-//   text-align: center;
-//   border-radius: 25px;
-//   outline-color: $primary-color;
-//   outline-width: 5px;
-//   outline-style: dashed;
-// }
-
-// .form {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 42px;
-//   padding: 20px 0;
-// }
-
-// @media screen and (max-width: 600px) {
-//   .inputlabel {
-//     padding: 10px;
-//     gap: 5px;
-//   }
-// }
 .form-button {
   margin: 48px 0;
 }
