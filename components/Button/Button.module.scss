@@ -13,6 +13,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  // padding: 0.5em 1.5em;
   @include padding(24px 48px);
   @include font-size(getFontSize(0));
 }

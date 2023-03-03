@@ -13,6 +13,8 @@ interface buttonProps {
   onClick: () => void;
   icon?: React.ReactNode;
   isSubmit?: boolean;
+  customStyle?: any;
+  className?: string;
 }
 const Button: FC<buttonProps> = ({
   type = "primary",
@@ -21,13 +23,16 @@ const Button: FC<buttonProps> = ({
   onClick,
   icon,
   isSubmit = false,
+  customStyle,
+  className: customClass,
 }) => {
   return (
     <button
       type={isSubmit ? "submit" : "button"}
       disabled={disabled}
-      className={`${styles.container} ${styles[type]}`}
+      className={`${styles.container} ${styles[type]} ${customClass}`}
       onClick={onClick}
+      style={customStyle}
     >
       {text}
       {icon}
