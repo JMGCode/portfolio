@@ -1,0 +1,82 @@
+@use "../../../abstracts/" as *;
+@import "rfs/scss";
+
+.container {
+  padding: 64px 0;
+}
+
+.list {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.inner-container {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 400px;
+  padding: 0 30px;
+  // background-color: red;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  animation: fadeEffect 1s;
+}
+
+.role-container ul > li {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.bullet {
+  font-size: 36px;
+  font-weight: bold;
+  color: $primary_color;
+  vertical-align: bottom;
+}
+
+.carousel-img {
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    padding: 32px 0;
+  }
+  .bullet {
+    font-size: 20px;
+  }
+  .inner-container *:not(h3):not(.bullet) {
+    @include font-size(getFontSize(-1));
+    line-height: getLineHeight(-1);
+  }
+
+  .role-container > ul > li {
+    margin-bottom: 0.2rem;
+  }
+
+  .carousel-img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .inner-container {
+    grid-template-columns: 1fr;
+  }
+}
