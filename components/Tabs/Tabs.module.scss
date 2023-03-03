@@ -1,0 +1,93 @@
+@use "../../abstracts/" as *;
+@import "rfs/scss";
+
+$tab-height: 2rem;
+$tab-width: 5rem;
+$tab-width-f: 8rem;
+$tab-height-f: 4rem;
+
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.tab {
+  border: none;
+  padding: 0.5rem 0.8rem;
+  background-color: inherit;
+  text-align: start;
+  height: $tab-height-f;
+  width: $tab-width-f;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  background-color: $primary-color;
+
+  height: $tab-height-f;
+  bottom: unset;
+  left: unset;
+
+  transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
+  transform: translateY(calc(var(--ind-index) * $tab-height-f));
+}
+
+@media screen and (max-width: 720px) {
+  .tab,
+  .content * {
+    @include font-size(getFontSize(-1));
+    line-height: getLineHeight(-1);
+  }
+
+  .tab {
+    width: $tab-width;
+    height: $tab-height;
+  }
+
+  .indicator {
+    height: $tab-height;
+    transform: translateY(calc(var(--ind-index) * $tab-height));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .tab {
+    max-width: $tab-width;
+    text-align: center;
+  }
+  .tabs-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .indicator {
+    bottom: 0;
+    left: 0;
+    top: unset;
+    right: unset;
+    height: 4px;
+
+    width: 100%;
+    max-width: $tab-width;
+    transform: translateX(calc(var(--ind-index) * $tab-width));
+  }
+}
