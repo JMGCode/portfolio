@@ -2,43 +2,35 @@
 @import "rfs/scss";
 
 .input-container {
-  // width: 280px;
   position: relative;
 }
 
 .label {
   position: absolute;
-  // left: 10px;
   left: 5px;
   top: 18px;
-  // top: 1rem;
   transition: all 0.2s;
   padding: 0 2px;
   z-index: 1;
   color: black;
-  // color: #b3b3b3;
 }
 .text-input {
   padding: 0.8rem;
   width: 100%;
   height: 100%;
   border: 2px solid $black-75;
-  // border: 2px solid #2f2c45;
-  // background: #272530;
   background: #fff;
   border-radius: 5px;
   font-size: 18px;
   outline: none;
   transition: all 0.3s;
   color: $black-100;
-  // margin: 21px 0;
 }
 
 .label::before {
   content: "";
   height: 5px;
   background: #fff;
-  // background: #272530;
   position: absolute;
   left: 0px;
   top: 10px;
@@ -48,7 +40,6 @@
 
 .text-input:focus {
   border: 2px solid $primary-color;
-  // border: 2px solid #7e4ccb;
 }
 
 .text-input:focus + .label {
@@ -74,4 +65,34 @@
 
 .text-input:not(:placeholder-shown) + .label::before {
   background: transparent;
+}
+
+@media screen and (max-width: 600px) {
+  .text-input {
+    font-size: 12px;
+    padding: 0.6rem;
+  }
+
+  .text-input::placeholder {
+    font-size: 12px;
+  }
+
+  .label {
+    left: 5px;
+    top: 8px;
+    padding: 0 2px;
+  }
+
+  .text-input:focus + .label {
+    font-size: 16px;
+  }
+
+  .text-input:not(:placeholder-shown) + .label {
+    font-size: 16px;
+    top: -25px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
 }
