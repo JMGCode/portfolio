@@ -1,7 +1,7 @@
 "use client";
 
 import { About } from "./home/about";
-import { Companies } from "./home/experiences";
+import { Experiences } from "./home/experiences";
 import { FC } from "react";
 import { Hero } from "./home/hero";
 import Info from "./home/info";
@@ -21,7 +21,7 @@ const page: FC<pageProps> = ({}) => {
     >
       <Hero />
       <About />
-      <Companies />
+      <Experiences />
       <Works />
       <Info />
     </div>
