@@ -1,52 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-const useScrollDirection = (interval = 300, initialDir = "up") => {
-  const lastExecuted = useRef<number>(Date.now());
-  const lastScrollPosition = useRef<number>(0);
-  const timeoutId = useRef<NodeJS.Timeout>();
-  // const [lastScrollPosition, setLastScrollPosition] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState(initialDir);
-
-  const throttle = (callback: () => void) => {
-    const currTime = Date.now();
-    const timeSinceLastCall = currTime - lastExecuted.current;
-    const delayRemaining = interval - timeSinceLastCall;
-
-    if (delayRemaining < 0) {
-      lastExecuted.current = Date.now();
-      callback();
-    } else {
-      if (timeoutId.current) clearTimeout(timeoutId.current);
-      const timerId = setTimeout(() => {
-        lastExecuted.current = Date.now();
-        callback();
-      }, delayRemaining);
-
-      timeoutId.current = timerId;
-    }
-  };
+const useScrollDirection = () => {
+  const [scrollDirection, setScrollDirection] = useState<string>("none");
+  const [lastScrollTop, setLastScrollTop] = useState<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currScrollPosition = window.scrollY;
-      if (currScrollPosition === lastScrollPosition.current) return;
-      if (currScrollPosition > lastScrollPosition.current) {
-        setScrollDirection("down");
-      } else {
-        setScrollDirection("up");
-      }
-      lastScrollPosition.current = currScrollPosition;
-      // setLastScrollPosition(currScrollPosition);
+      const currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDelta = currentScrollTop - lastScrollTop;
+      const direction = scrollDelta > 0 ? "down" : "up";
+
+      setScrollDirection(direction);
+      setLastScrollTop(currentScrollTop);
     };
 
-    const tScroll = throttle(handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-    window.addEventListener("scroll", () => throttle(handleScroll));
-    throttle(handleScroll);
-    return () =>
-      window.removeEventListener("scroll", () => throttle(handleScroll));
-  }, [lastScrollPosition]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollTop]);
 
   return scrollDirection;
 };
+
 export default useScrollDirection;
