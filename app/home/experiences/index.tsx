@@ -30,7 +30,7 @@ type RoleType = {
 };
 
 //unordered list
-export const Companies = () => {
+export const Experiences = () => {
   const roles: Array<RoleType> = useMemo(
     () => [
       {
@@ -113,15 +113,16 @@ const Role: FC<{ role: RoleType }> = ({ role }) => {
                 key={"carousel-img" + url + idx}
                 className={styles["carousel-img"]}
               >
-                <div style={{ position: "relative", height: "100%" }}>
-                  <Image
-                    alt={`image-${idx}`}
-                    src={url}
-                    fill
-                    style={{ objectFit: "scale-down" }}
-                    placeholder="blur"
-                  />
-                </div>
+                <Image
+                  alt={`image-${idx}`}
+                  src={url}
+                  fill
+                  style={{ objectFit: "scale-down" }}
+                  placeholder="blur"
+                  sizes="(max-width: 768px) 100vw,
+                    (max-width: 1200px) 50vw,
+                    33vw"
+                />
               </div>
             ))}
           </Carousel>
