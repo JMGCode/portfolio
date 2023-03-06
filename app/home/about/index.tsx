@@ -1,8 +1,5 @@
-import "pure-react-carousel/dist/react-carousel.es.css";
-
 import Image from "next/image";
 import InfiniteList from "../../../components/InfiniteList/InfiniteList";
-import { greenLofi } from "../../../assets/imgs";
 import styles from "./about.module.scss";
 import { useMemo } from "react";
 
