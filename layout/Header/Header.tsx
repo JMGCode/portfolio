@@ -16,7 +16,8 @@ import WorkIcon from "../../components/Icons/NavIcons/work";
 import { primaryColor } from "../../abstracts/colors";
 import scrollToTop from "../../helpers/scrollToTop";
 import styles from "./Header.module.scss";
-import useWindowSize from "../../hooks/useWindowSize";
+import useBreakpoint from "../../hooks/useBreakpoint";
+import useScrollDirection from "../../hooks/useScrollDirection";
 
 type sectionType = {
   id: string;
@@ -25,7 +26,8 @@ type sectionType = {
 };
 
 const Header = () => {
-  const windowSize = useWindowSize();
+  const scrollDir = useScrollDirection();
+  const breakpoint = useBreakpoint();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -56,81 +58,38 @@ const Header = () => {
   );
 
   useEffect(() => {
-    if (windowSize) {
-      if (windowSize.width >= 768) {
-        setIsMenuOpen(false);
-      }
-    }
-  }, [windowSize]);
-
-  // return (
-  //   <div
-  //     className={styles.container}
-  //     // style={{
-  //     //   transition: "transform 200ms",
-  //     //   // transform: "",
-  //     //   // transform: `translateY(${scrollDir === "down" ? "-96" : "0"}px)`,
-  //     // }}
-  //   >
-  //     <Image
-  //       alt=""
-  //       src="/images/logo.svg"
-  //       height={60}
-  //       width={150}
-  //       onClick={scrollToTop}
-  //     />
-
-  //     <Navbar items={navbarItems}>
-  //       <div
-  //         style={{
-  //           display: "flex",
-  //           justifyContent: "space-between",
-  //           flexDirection: "column",
-  //           flex: "1",
-  //         }}
-  //       >
-  //         <div className={styles.content}>
-  //           {sections.map((section, idx) => (
-  //             <MenuLink
-  //               key={"menu-link" + section.id + idx}
-  //               section={section}
-  //             />
-  //           ))}
-
-  //           <Twitter
-  //             className="cursor-pointer"
-  //             onClick={() => openLinkTab("https://twitter.com/JMGCode")}
-  //           />
-  //           <GitHub
-  //             className="cursor-pointer"
-  //             onClick={() => openLinkTab("https://github.com/JMGCode")}
-  //           />
-  //           <LinkedIn
-  //             className="cursor-pointer"
-  //             onClick={() =>
-  //               openLinkTab(
-  //                 "https://linkedin.com/in/jesus-mezquiti-guerrero-00b93885"
-  //               )
-  //             }
-  //           />
-  //         </div>
-  //       </div>
-  //     </Navbar>
-  //   </div>
-  // );
+    if (breakpoint === "sm" || breakpoint == "xs") return;
+    if (isMenuOpen) handleCloseMenu();
+  }, [breakpoint]);
 
   const handleLinkClick = (section: sectionType) => {
-    setIsMenuOpen(false);
+    handleCloseMenu();
     scrollToSection(section.id);
   };
+
+  const handleCloseMenu = () => {
+    document.body.style.overflowY = "auto";
+    setIsMenuOpen(false);
+  };
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        transition: "transform 300ms ease-in-out",
+        transform: `translateY(${
+          scrollDir === "none" || scrollDir === "up" ? "0" : "-100px"
+        })`,
+      }}
+    >
       <Image
         alt=""
         src={LogoSvg}
         height={60}
         width={150}
         onClick={scrollToTop}
+        priority
+        style={{ zIndex: "2" }}
       />
       <div className={styles["nav-container"]}>
         <div
@@ -168,6 +127,9 @@ const Header = () => {
         <div className={styles.burger}>
           <BurgerMenu
             onClick={() => {
+              document.body.style.overflowY = `${
+                isMenuOpen ? "auto" : "hidden"
+              }`;
               setIsMenuOpen((prev) => !prev);
             }}
             isActive={isMenuOpen}
@@ -183,10 +145,7 @@ const MenuLink: FC<{ section: sectionType; onClick: any }> = ({
   onClick,
 }) => {
   return (
-    <div
-      className={`${styles["font-small"]} ${styles["nav-link"]}`}
-      onClick={() => onClick(section)}
-    >
+    <div className={`${styles["nav-link"]}`} onClick={() => onClick(section)}>
       <div className={styles["nav-link-icon"]}>{section.icon}</div>
       {section.name}
     </div>

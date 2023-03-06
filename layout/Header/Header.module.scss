@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  padding: 0 20px;
+  padding: 0 64px;
 
   top: 0;
   position: sticky;
@@ -27,7 +27,6 @@
 }
 
 .nav-link-container {
-  // border: 2px solid purple;
   height: 100%;
   display: flex;
   gap: 32px;
@@ -35,7 +34,6 @@
 }
 
 .nav-social-container {
-  // border: 2px solid aqua;
   height: 100%;
   display: flex;
   gap: 32px;
@@ -44,9 +42,6 @@
 
 .burger {
   display: none;
-  // background-color: blue;
-  // width: 60px;
-  // aspect-ratio: 1;
 }
 
 .nav-link-icon {
@@ -64,10 +59,6 @@
   font-weight: bold;
 }
 
-// .nav-link:hover {
-//   background-color: rgba($color: #000000, $alpha: 0.5);
-// }
-
 @media only screen and (max-width: 900px) {
   .nav-social-container {
     display: none;
@@ -75,10 +66,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 32px;
+  }
   .burger {
     display: block;
     z-index: 2;
   }
+
   .nav-link-container {
     position: fixed;
     right: -100%;
@@ -89,6 +84,15 @@
     max-width: 600px;
     background-color: aqua;
     transition: right 400ms ease-in-out;
+    height: min-content;
+
+    //-----
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   .nav-link-container.menu-active {
@@ -102,7 +106,7 @@
   .nav-link,
   .nav-social-container {
     width: 100%;
-    padding: 10px 14px;
+    padding: 10px 32px;
   }
 
   .nav-social-container {
