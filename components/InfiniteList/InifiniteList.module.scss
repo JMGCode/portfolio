@@ -1,12 +1,14 @@
 .container {
   overflow: hidden;
   position: relative;
-  width: calc(100vw - 40px);
-  max-width: calc(800px - 60px);
+  // width: calc(100vw - 40px);
+  // max-width: calc(800px - 60px);
+  max-width: calc(880px - 60px);
 }
 
 .wrapper {
   display: flex;
+  width: 0px;
 }
 
 .item {
