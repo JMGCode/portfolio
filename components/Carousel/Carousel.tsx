@@ -54,7 +54,7 @@ export const Carousel: FC<Props> = ({
       startInterval();
       return () => stopInterval();
     }
-  }, []);
+  }, [autoPlay, setInterval]);
 
   const pause = () => {
     if (isPaused) {
