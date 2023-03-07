@@ -109,4 +109,6 @@ const Input = forwardRef(
   }
 );
 
+Input.displayName = "InputComponent";
+
 export default Input;
