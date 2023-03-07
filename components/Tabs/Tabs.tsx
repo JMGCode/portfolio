@@ -15,14 +15,12 @@ const Tabs: FC<IProps> = ({ tabs }) => {
   const tabRef = useRef(null);
   const [offset, setOffset] = useState<any>(null);
   const tabContainerRef = useRef(null);
-  // const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
   useEffect(() => {
     if (tabRef.current) {
       const { offsetWidth, offsetHeight, offsetLeft, offsetTop } =
         tabRef.current;
 
-      // console.log("window width", windowSize.current[0]);
       setOffset({
         width: offsetWidth,
         height: offsetHeight,
@@ -78,7 +76,7 @@ const Tabs: FC<IProps> = ({ tabs }) => {
         {tabs
           .filter((_, idx) => idx === activeTab)
           .map((tab, idx) => (
-            <div key={"tab-content" + idx}>{tab.content}</div>
+            <div key={"tab-content" + tab.name + idx}>{tab.content}</div>
           ))}
       </div>
     </div>
