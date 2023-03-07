@@ -1,27 +1,48 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import styles from "./Modal.module.scss";
 
-const Modal = () => {
-  const [modal, setModal] = useState(false);
+interface Props {
+  children: React.ReactNode;
+  isVisible: boolean;
+  setIsVisible: (value: boolean) => void;
+}
+const Modal: FC<Props> = ({ children, isVisible, setIsVisible }) => {
+  // const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
-    setModal(!modal);
+    // setModal(!modal);
   };
 
   useEffect(() => {
-    if (modal) {
+    if (isVisible) {
       document.body.classList.add(styles["active-modal"]);
     } else {
       document.body.classList.remove(styles["active-modal"]);
     }
-  }, [modal]);
+  }, [isVisible]);
 
-  return (
+  return isVisible ? (
     <div className={styles.modal}>
-      <div onClick={toggleModal} className={styles.overlay}></div>
+      <div onClick={() => setIsVisible(false)} className={styles.overlay}></div>
       <div className={styles["modal-content"]}>
-        <div
+        {children}
+        <button
+          className={styles["close-modal"]}
+          onClick={() => setIsVisible(false)}
+        >
+          <p>x</p>
+        </button>
+      </div>
+    </div>
+  ) : null;
+};
+
+export default Modal;
+
+/**
+ * 
+ *    <div
           className={styles["ava-alert__icon"]}
           style={{ background: "#438C5E" }}
         >
@@ -43,7 +64,7 @@ const Modal = () => {
                   className={styles["checkmark__check"]}
                   fill="none"
                   d="M616.306,283.025L634.087,300.805L673.361,261.53"
-                  stroke="purple"
+                  stroke="white"
                 />
               </g>
             </svg>
@@ -55,12 +76,4 @@ const Modal = () => {
             I'll reach to you as soon as possible
           </p>
         </div>
-        <button className={styles["close-modal"]} onClick={toggleModal}>
-          <p>x</p>
-        </button>
-      </div>
-    </div>
-  );
-};
-
-export default Modal;
+ */
