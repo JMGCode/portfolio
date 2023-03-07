@@ -16,7 +16,9 @@ export const Hero = () => (
       </p>
       <Button
         text="See my work"
-        onClick={() => scrollToSection("works-section")}
+        onClick={() =>
+          scrollToSection("works-section", window.innerWidth > 768 ? 100 : 60)
+        }
         icon={<ArrowDownCircle style={{ minWidth: "32px" }} />}
       />
     </div>

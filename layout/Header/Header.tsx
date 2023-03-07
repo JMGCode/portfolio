@@ -64,7 +64,7 @@ const Header = () => {
 
   const handleLinkClick = (section: sectionType) => {
     handleCloseMenu();
-    scrollToSection(section.id);
+    scrollToSection(section.id, window.innerWidth > 768 ? 100 : 60);
   };
 
   const handleCloseMenu = () => {
@@ -82,15 +82,17 @@ const Header = () => {
         })`,
       }}
     >
-      <Image
-        alt=""
-        src={LogoSvg}
-        height={60}
-        width={150}
-        onClick={scrollToTop}
-        priority
-        style={{ zIndex: "2" }}
-      />
+      <div className={styles.logo}>
+        <Image
+          alt=""
+          src={LogoSvg}
+          fill
+          onClick={scrollToTop}
+          priority
+          style={{ zIndex: "2" }}
+          sizes="(max-width: 768px) 100px,150px"
+        />
+      </div>
       <div className={styles["nav-container"]}>
         <div
           className={`${styles["nav-link-container"]} ${

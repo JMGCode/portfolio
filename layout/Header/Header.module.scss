@@ -15,9 +15,9 @@
 }
 
 .logo {
-  width: 300px;
-  height: 100%;
-  background-color: tomato;
+  width: 150px;
+  height: 60px;
+  position: relative;
 }
 
 .nav-container {
@@ -68,6 +68,7 @@
 @media only screen and (max-width: 768px) {
   .container {
     padding: 0 32px;
+    height: 60px;
   }
   .burger {
     display: block;
@@ -76,14 +77,15 @@
 
   .nav-link-container {
     position: fixed;
-    right: -100%;
+    right: 0;
     top: 0;
     flex-direction: column;
     padding: 100px 0;
-    width: 100%;
+    width: 0px;
+    overflow: hidden;
     max-width: 600px;
     background-color: aqua;
-    transition: right 400ms ease-in-out;
+    transition: width 400ms ease-in-out;
     height: min-content;
 
     //-----
@@ -96,7 +98,8 @@
   }
 
   .nav-link-container.menu-active {
-    right: 0;
+    // right: 0;
+    width: 100%;
   }
 
   .nav-link-icon {
@@ -112,5 +115,10 @@
   .nav-social-container {
     display: flex;
     height: min-content;
+  }
+
+  .logo {
+    width: 100px;
+    height: 40px;
   }
 }

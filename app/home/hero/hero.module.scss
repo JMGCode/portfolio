@@ -26,9 +26,12 @@
   color: $black-75;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   .message p {
     @include font-size(getFontSize(-1));
     line-height: getLineHeight(-1);
+  }
+  .container {
+    height: calc(100vh - 60px);
   }
 }
