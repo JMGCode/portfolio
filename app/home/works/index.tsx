@@ -81,7 +81,7 @@ export const Works = () => {
         type: "featured",
         name: "Spotify Player",
         description:
-          "The application includes WebPlayer SDK (require premium), notifications, navigation of the user's spotify library, search by category, OAuth2",
+          "The application includes WebPlayer SDK (require premium), notifications, navigation of the user's spotify library,etc.",
         techs: [
           "ReacJs",
           "Typescript",
@@ -151,7 +151,7 @@ export const Works = () => {
               key={"work-img" + name + idx}
               image={img}
               content={
-                <div style={{ color: "white", padding: "20px" }}>
+                <div className={styles["overlay-content"]}>
                   <p
                     style={{
                       color: primaryColor,
@@ -163,7 +163,13 @@ export const Works = () => {
                       : "Freelance Project"}
                   </p>
                   <h4 style={{ margin: "2px 0 10px 0" }}>{name}</h4>
-                  <p style={{ fontSize: "18px" }}>{description}</p>
+                  <p
+                    style={{
+                      fontSize: "18px",
+                    }}
+                  >
+                    {description}
+                  </p>
                   <ul
                     style={{
                       display: "flex",
