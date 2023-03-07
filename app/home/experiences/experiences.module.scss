@@ -13,11 +13,9 @@
 
 .inner-container {
   max-width: 880px;
-  // max-width: 800px;
   margin: 0 auto;
   min-height: 400px;
   padding: 0 30px;
-  // background-color: red;
 }
 
 .tabcontent {
@@ -37,13 +35,18 @@
   font-weight: bold;
   color: $primary_color;
   vertical-align: bottom;
+  ///=======
+  height: getFontSize(0);
+  display: flex;
+  align-items: center;
 }
 
-.carousel-img {
-  height: 300px;
-  width: 100%;
-  position: relative;
-}
+// .carousel-img {
+//   // height: 300px;
+//   height: 500px;
+//   width: 100%;
+//   position: relative;
+// }
 
 /* Go from zero to full opacity */
 @keyframes fadeEffect {
@@ -61,6 +64,7 @@
   }
   .bullet {
     font-size: 20px;
+    height: getFontSize(-1);
   }
   .inner-container *:not(h3):not(.bullet) {
     @include font-size(getFontSize(-1));
@@ -72,7 +76,8 @@
   }
 
   .carousel-img {
-    height: 200px;
+    height: 250px;
+    // height: 200px;
   }
 }
 
