@@ -31,6 +31,13 @@
   grid-column: span 2;
 }
 
+.spin-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 1s linear infinite;
+}
+
 @media screen and (max-width: 720px) {
   .text p {
     @include font-size(getFontSize(-1));
@@ -40,6 +47,7 @@
 
 .form-button {
   margin: 48px 0;
+  transition: width 300ms ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -59,5 +67,14 @@
 @media screen and (max-width: 411px) {
   .form-button {
     font-size: 16px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

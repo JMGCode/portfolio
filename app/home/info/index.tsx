@@ -1,13 +1,30 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import Button from "../../../components/Button/Button";
 import Input from "../../../components/Input/Input";
 import Modal from "../../../components/Modal/Modal";
 import Portal from "../../../HOC/Portal";
+import SpinningWheel from "../../../components/Icons/spinningWheel";
 import { sendContactForm } from "../../../lib/api";
 import styles from "./info.module.scss";
 
 const Info = () => {
+  const [buttonState, setButtonState] = useState<
+    "iddle" | "loading" | "success" | "error"
+  >("iddle");
+
+  const buttonIcon = useMemo(() => {
+    return {
+      iddle: <div>Send message</div>,
+      error: <div>Send error</div>,
+      success: <div>Message sent</div>,
+      loading: (
+        <div className={styles["spin-animation"]}>
+          <SpinningWheel color="white" />
+        </div>
+      ),
+    };
+  }, []);
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const detailsRef = useRef(null);
@@ -18,6 +35,7 @@ const Info = () => {
   });
 
   const handleSetData = (e: any) => {
+    if (buttonState !== "iddle") setButtonState("iddle");
     const { id, value } = e.currentTarget;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
@@ -36,10 +54,15 @@ const Info = () => {
 
     if (a && b && c) {
       try {
+        setButtonState("loading");
         await sendContactForm(formData);
-        console.log("sended successfully");
+        setButtonState("success");
+        setFormData({ name: "", email: "", details: "" });
       } catch (error: any) {
-        console.log("Submit error:", error.message);
+        setButtonState(error);
+        setTimeout(() => {
+          setButtonState("iddle");
+        }, 1000);
       }
     }
   };
@@ -96,8 +119,10 @@ const Info = () => {
           />
           <Button
             isSubmit
-            className={`  ${styles["form-button"]}`}
-            text="Send message"
+            className={`${styles["form-button"]}`}
+            text=""
+            // text={buttonState === "iddle" ? "Send message" : ""}
+            icon={buttonIcon[buttonState]}
             onClick={() => {}}
           />
         </div>
