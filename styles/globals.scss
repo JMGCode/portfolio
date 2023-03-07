@@ -45,11 +45,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-open-sans), sans-serif;
   font-weight: bold;
 }
 p {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }
 
 //RFS
@@ -107,8 +107,11 @@ body {
   overflow-x: hidden;
 }
 @media screen and (max-width: 768px) {
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
   body::-webkit-scrollbar {
-    width: 0;
-    background-color: transparent;
+    display: none;
   }
 }
