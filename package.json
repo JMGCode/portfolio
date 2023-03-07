@@ -10,6 +10,7 @@
     "prod": "yarn build && yarn start"
   },
   "dependencies": {
+    "@next/font": "^13.2.3",
     "@types/node": "18.11.10",
     "@types/nodemailer": "^6.4.7",
     "@types/react": "18.0.26",
