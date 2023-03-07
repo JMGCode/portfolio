@@ -107,33 +107,19 @@ const Role: FC<{ role: RoleType }> = ({ role }) => {
       <br />
       <div>
         {role.images && (
-          <Carousel infiniteLoop autoPlay intervalTime={6000}>
-            {role.images.map((url, idx) => (
-              <div
-                key={"carousel-img" + url + idx}
-                className={styles["carousel-img"]}
-              >
-                <Image
-                  alt={`image-${idx}`}
-                  src={url}
-                  fill
-                  style={{ objectFit: "scale-down" }}
-                  placeholder="blur"
-                  sizes="(max-width: 768px) 100vw,
-                    (max-width: 1200px) 50vw,
-                    33vw"
-                />
-              </div>
-            ))}
-          </Carousel>
+          <Carousel
+            infiniteLoop
+            autoPlay
+            intervalTime={6000}
+            images={role.images}
+          />
         )}
         <br />
         <ul>
           {responsabilities.map((res, idx) => {
             return (
               <li key={"resp-bullet" + idx}>
-                {" "}
-                <div style={{ display: "flex", gap: "5px" }}>
+                <div style={{ display: "flex", gap: "10px" }}>
                   <div className={styles.bullet}>{"› "}</div>
                   <p>{res}</p>
                 </div>
