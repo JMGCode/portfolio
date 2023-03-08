@@ -65,7 +65,11 @@
   width: 100%;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.6);
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
   transition: 0.5s ease;
+
   border: solid white;
   border-width: 0px;
   // display: flex;
@@ -98,6 +102,9 @@
 
 .image-container img {
   object-fit: cover;
+  -webkit-transition: transform 600ms, filter 1200ms ease-in-out, border 500ms;
+  -moz-transition: transform 600ms, filter 1200ms ease-in-out, border 500ms;
+  -o-transition: transform 600ms, filter 1200ms ease-in-out, border 500ms;
   transition: transform 600ms, filter 1200ms ease-in-out, border 500ms;
   filter: blur(0);
   transform: scale(1);
@@ -129,6 +136,9 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
   transition: opacity 300ms;
 }
 

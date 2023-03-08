@@ -17,10 +17,17 @@ $lineMargin: 5.75px; //10
   height: $lineHeight;
   margin-block: $lineMargin;
   border-radius: 4px;
+  -webkit-transition: transform 0.5s, opacity 0.25s;
+  -moz-transition: transform 0.5s, opacity 0.25s;
+  -o-transition: transform 0.5s, opacity 0.25s;
   transition: transform 0.5s, opacity 0.25s;
 }
 
 .hamburger.active .line:nth-child(1) {
+  -webkit-transform: translateY(calc($lineHeight + $lineMargin)) rotate(45deg);
+  -moz-transform: translateY(calc($lineHeight + $lineMargin)) rotate(45deg);
+  -ms-transform: translateY(calc($lineHeight + $lineMargin)) rotate(45deg);
+  -o-transform: translateY(calc($lineHeight + $lineMargin)) rotate(45deg);
   transform: translateY(calc($lineHeight + $lineMargin)) rotate(45deg);
 }
 
@@ -29,5 +36,13 @@ $lineMargin: 5.75px; //10
 }
 
 .hamburger.active .line:nth-child(3) {
+  -webkit-transform: translateY(calc(-1 * ($lineHeight + $lineMargin)))
+    rotate(-45deg);
+  -moz-transform: translateY(calc(-1 * ($lineHeight + $lineMargin)))
+    rotate(-45deg);
+  -ms-transform: translateY(calc(-1 * ($lineHeight + $lineMargin)))
+    rotate(-45deg);
+  -o-transform: translateY(calc(-1 * ($lineHeight + $lineMargin)))
+    rotate(-45deg);
   transform: translateY(calc(-1 * ($lineHeight + $lineMargin))) rotate(-45deg);
 }

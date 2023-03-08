@@ -12,6 +12,12 @@
   width: 100%;
   z-index: 2;
   background-color: white;
+
+  -webkit-transform: 300ms ease-in-out;
+  -moz-transform: 300ms ease-in-out;
+  -ms-transform: 300ms ease-in-out;
+  -o-transform: 300ms ease-in-out;
+  transform: 300ms ease-in-out;
 }
 
 .logo {
@@ -85,6 +91,9 @@
     overflow: hidden;
     max-width: 600px;
     background-color: aqua;
+    -webkit-transition: width 400ms ease-in-out;
+    -moz-transition: width 400ms ease-in-out;
+    -o-transition: width 400ms ease-in-out;
     transition: width 400ms ease-in-out;
     height: min-content;
 

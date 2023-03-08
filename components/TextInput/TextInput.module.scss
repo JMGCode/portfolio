@@ -10,6 +10,9 @@ label {
   position: absolute;
   left: 10px;
   top: 1rem;
+  -webkit-transition: top 200ms;
+  -moz-transition: top 200ms;
+  -o-transition: top 200ms;
   transition: top 200ms;
   padding: 0 2px;
   color: $black-100;
@@ -48,6 +51,9 @@ input:focus + label {
 
 input::placeholder {
   opacity: 0;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
   transition: opacity 300ms;
   font-size: 16px;
 }

@@ -47,6 +47,9 @@
 
 .form-button {
   margin: 48px 0;
+  -webkit-transition: width 300ms ease-in-out;
+  -moz-transition: width 300ms ease-in-out;
+  -o-transition: width 300ms ease-in-out;
   transition: width 300ms ease-in-out;
 }
 

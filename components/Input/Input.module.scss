@@ -9,6 +9,9 @@
   position: absolute;
   left: 5px;
   top: 18px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
   transition: all 0.2s;
   padding: 0 2px;
   z-index: 1;
@@ -23,6 +26,9 @@
   border-radius: 5px;
   font-size: 18px;
   outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
   color: $black-100;
 }

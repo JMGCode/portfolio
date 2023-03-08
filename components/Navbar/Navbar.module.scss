@@ -40,6 +40,9 @@
     width: 100%;
     top: 0;
     right: -100%;
+    -webkit-transition: right 500ms ease-in-out;
+    -moz-transition: right 500ms ease-in-out;
+    -o-transition: right 500ms ease-in-out;
     transition: right 500ms ease-in-out;
     align-items: flex-start;
     padding: 60px 20px 20px;

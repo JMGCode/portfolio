@@ -49,6 +49,9 @@ $tab-height-f: 4rem;
   height: 4px;
   width: 100%;
   max-width: $tab-width-f;
+  -webkit-transition: transform 300ms ease-in-out;
+  -moz-transition: transform 300ms ease-in-out;
+  -o-transition: transform 300ms ease-in-out;
   transition: transform 300ms ease-in-out;
   transform: translateX(calc(var(--ind-index) * $tab-width-f));
 }
