@@ -76,9 +76,10 @@ const Header = () => {
     <div
       className={styles.container}
       style={{
-        transition: "transform 300ms ease-in-out",
         transform: `translateY(${
-          scrollDir === "none" || scrollDir === "up" ? "0" : "-100px"
+          scrollDir === "none" || scrollDir === "up" || window.pageYOffset < 10
+            ? "0"
+            : "-100px"
         })`,
       }}
     >
