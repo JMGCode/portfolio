@@ -24,10 +24,8 @@ export default function RootLayout({
       <body>
         <div className={styles.container}>
           <Header />
-
           {children}
         </div>
-        <div id="myportal">{}</div>
       </body>
     </html>
   );

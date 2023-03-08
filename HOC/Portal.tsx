@@ -9,18 +9,12 @@ interface Props {
 }
 
 const Portal: FC<Props> = ({ children }) => {
-  const [mounted, setMounted] = useState(false);
-
+  const [container, setContainer] = useState<HTMLDivElement>();
   useEffect(() => {
-    setMounted(true);
-
-    return () => setMounted(false);
+    setContainer(document.createElement("div"));
   }, []);
 
-  const portal = document?.querySelector("#myportal");
-  if (!portal) return null;
-
-  return mounted ? createPortal(children, portal) : null;
+  return container ? createPortal(children, container) : null;
 };
 
 export default Portal;

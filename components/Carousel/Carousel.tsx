@@ -263,7 +263,7 @@ export const Carousel: FC<Props> = ({
           )}
         </div>
       </div>
-      {/* <Portal>
+      <Portal>
         <Modal
           key="preview"
           setIsVisible={(value) => {
@@ -290,7 +290,7 @@ export const Carousel: FC<Props> = ({
             />
           </div>
         </Modal>
-      </Portal> */}
+      </Portal>
     </>
   );
 };
