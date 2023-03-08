@@ -210,9 +210,9 @@ export const Carousel: FC<Props> = ({
           )}
           <div
             onClick={() => {
-              stopInterval();
-              setPreview(true);
-              console.log(currentIndex, images[currentIndex]);
+              // stopInterval();
+              // setPreview(true);
+              // console.log(currentIndex, images[currentIndex]);
             }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -263,7 +263,7 @@ export const Carousel: FC<Props> = ({
           )}
         </div>
       </div>
-      <Portal>
+      {/* <Portal>
         <Modal
           key="preview"
           setIsVisible={(value) => {
@@ -273,38 +273,9 @@ export const Carousel: FC<Props> = ({
           }}
           isVisible={preview}
         >
-          {/* <div
-            style={{
-              padding: "100px 40px 40px 40px",
-              background: "rgba(255, 255, 255, 0.5)",
-              boxShadow: "0 8px 32px 0 rgb(31 38 135 / 37%)",
-              backdropFilter: "blur(1px)",
-              borderRadius: "10px",
-              border: "1px solid rgba(255, 255, 255, 0.18)",
-            }}
-          >
-            <div
-              style={{
-                position: "relative",
-                height: "60vh",
-                width: "80vw",
-                // backgroundColor: "transparent",
-              }}
-            >
-              <Image
-                alt="preview-image"
-                src={images[currentIndex - 1]}
-                fill
-                style={{
-                  objectFit: "contain",
-                }}
-              />
-            </div>
-          </div> */}
           <div style={{ height: "100%" }}></div>
           <div
             style={{
-              // backgroundColor: "red",
               height: "100%",
               position: "relative",
             }}
@@ -319,7 +290,7 @@ export const Carousel: FC<Props> = ({
             />
           </div>
         </Modal>
-      </Portal>
+      </Portal> */}
     </>
   );
 };
