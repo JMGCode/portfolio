@@ -210,8 +210,8 @@ export const Carousel: FC<Props> = ({
           )}
           <div
             onClick={() => {
-              // stopInterval();
-              // setPreview(true);
+              stopInterval();
+              setPreview(true);
               // console.log(currentIndex, images[currentIndex]);
             }}
             onTouchStart={handleTouchStart}
