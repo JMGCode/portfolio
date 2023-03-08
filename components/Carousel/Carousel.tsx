@@ -21,7 +21,9 @@ export const Carousel: FC<Props> = ({
   autoPlay = false,
   intervalTime = 1000,
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(infiniteLoop ? show : 0);
+  const [currentIndex, setCurrentIndex] = useState(
+    infiniteLoop && images?.length > show ? show : 0
+  );
   const [length, setLength] = useState(images?.length);
 
   const [isRepeating, setIsRepeating] = useState(
