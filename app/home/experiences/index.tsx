@@ -78,8 +78,8 @@ export const Experiences = () => {
   return (
     <div id="experience-section" className={styles.container}>
       <div className={styles["inner-container"]}>
-        <h3 style={{ fontWeight: "bold" }}>Experiences</h3>
-        <br />
+        <h2 style={{ fontWeight: "bold" }}>Experiences</h2>
+
         <Tabs
           tabs={roles.map((role) => ({
             name: role.company,
@@ -95,13 +95,29 @@ const Role: FC<{ role: RoleType }> = ({ role }) => {
   const { title, company, from, to, responsabilities, companyFull } = role;
   return (
     <div className={styles["role-container"]}>
-      <p>
+      <p
+        style={{
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}
+      >
         {`${title} - `}{" "}
         <span
-          style={{ color: primaryColor, fontWeight: "bold" }}
+          style={{
+            color: primaryColor,
+            fontWeight: "bold",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
         >{`${companyFull}`}</span>
       </p>
-      <p style={{ fontSize: "16px" }}>
+      <p
+        style={{
+          fontSize: "16px",
+        }}
+      >
         {from} - {to}
       </p>
       <br />
@@ -115,7 +131,14 @@ const Role: FC<{ role: RoleType }> = ({ role }) => {
           />
         )}
         <br />
-        <ul>
+        <ul
+          // style={{
+          //   display: "grid",
+          //   gridTemplateColumns: "1fr 1fr",
+          //   gap: "1em",
+          // }}
+          className={styles["resp-list"]}
+        >
           {responsabilities.map((res, idx) => {
             return (
               <li key={"resp-bullet" + idx}>

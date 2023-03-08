@@ -1,9 +1,11 @@
 @use "../../../abstracts/" as *;
 @import "rfs/scss";
 
-.container {
-  padding: 64px 0;
-}
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 32px;
+// }
 
 .list {
   display: flex;
@@ -12,10 +14,13 @@
 }
 
 .inner-container {
-  max-width: 880px;
-  margin: 0 auto;
+  // max-width: 880px;
+  // margin: 0 auto;
   min-height: 400px;
-  padding: 0 30px;
+  // padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .tabcontent {
@@ -48,6 +53,12 @@
 //   position: relative;
 // }
 
+.resp-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
 /* Go from zero to full opacity */
 @keyframes fadeEffect {
   from {
@@ -58,7 +69,7 @@
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
   .container {
     padding: 32px 0;
   }
@@ -66,7 +77,7 @@
     font-size: 20px;
     height: getFontSize(-1);
   }
-  .inner-container *:not(h3):not(.bullet) {
+  .inner-container *:not(h2):not(.bullet) {
     @include font-size(getFontSize(-1));
     line-height: getLineHeight(-1);
   }
@@ -77,12 +88,15 @@
 
   .carousel-img {
     height: 250px;
-    // height: 200px;
   }
-}
 
-@media screen and (max-width: 600px) {
-  .inner-container {
+  .resp-list {
     grid-template-columns: 1fr;
   }
 }
+
+// @media screen and (max-width: 600px) {
+//   .inner-container {
+//     grid-template-columns: 1fr;
+//   }
+// }

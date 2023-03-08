@@ -1,18 +1,27 @@
 @use "../../../abstracts/" as *;
 @import "rfs/scss";
 
-.container {
-  // max-width: 800px;
-  max-width: 880px;
+// .container {
+//   max-width: 800px;
+//   // max-width: 880px;
 
+//   margin: 0 auto;
+//   // padding: 0 20px;
+// }
+
+.text {
   margin: 0 auto;
-  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 .message {
   display: flex;
   flex-direction: column;
   gap: 21px;
+  max-width: 750px;
 }
 
 .message p {

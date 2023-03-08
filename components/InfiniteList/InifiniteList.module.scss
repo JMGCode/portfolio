@@ -3,7 +3,7 @@
   position: relative;
   // width: calc(100vw - 40px);
   // max-width: calc(800px - 60px);
-  max-width: calc(880px - 60px);
+  max-width: calc(1200px - 64px);
 }
 
 .wrapper {
@@ -23,9 +23,9 @@
   animation-delay: -40s;
 }
 
-.container:hover .item {
-  animation-play-state: paused;
-}
+// .container:hover .item {
+//   animation-play-state: paused;
+// }
 
 @keyframes animate {
   0% {

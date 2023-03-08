@@ -274,7 +274,6 @@ export const Carousel: FC<Props> = ({
           }}
           isVisible={preview}
         >
-          <div style={{ height: "100%" }}></div>
           <div
             style={{
               height: "100%",

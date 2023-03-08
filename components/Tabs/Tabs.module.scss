@@ -8,7 +8,7 @@ $tab-height-f: 4rem;
 
 .container {
   display: flex;
-  gap: 10px;
+  gap: 32px;
   flex-direction: row;
   flex-direction: column;
 }
@@ -39,6 +39,7 @@ $tab-height-f: 4rem;
   max-width: $tab-width-f;
   width: $tab-width-f;
   height: $tab-height;
+  color: black;
 }
 
 .indicator {
@@ -51,8 +52,14 @@ $tab-height-f: 4rem;
   max-width: $tab-width-f;
   -webkit-transition: transform 300ms ease-in-out;
   -moz-transition: transform 300ms ease-in-out;
+  -ms-transition: transform 300ms ease-in-out;
   -o-transition: transform 300ms ease-in-out;
   transition: transform 300ms ease-in-out;
+
+  -webkit-transform: translateX(calc(var(--ind-index) * $tab-width-f));
+  -moz-transform: translateX(calc(var(--ind-index) * $tab-width-f));
+  -ms-transform: translateX(calc(var(--ind-index) * $tab-width-f));
+  -o-transform: translateX(calc(var(--ind-index) * $tab-width-f));
   transform: translateX(calc(var(--ind-index) * $tab-width-f));
 }
 

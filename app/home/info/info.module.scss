@@ -5,10 +5,10 @@
   display: flex;
   gap: 96px;
   width: 100%;
-  max-width: 800px;
+  max-width: 768px;
   margin: 0 auto;
   flex-direction: column;
-  padding: 0 30px;
+  // padding: 0 30px;
 }
 .text {
   display: flex;
@@ -60,6 +60,10 @@
   .form-container {
     gap: 16px;
     row-gap: 48px;
+  }
+
+  .form-container > * {
+    grid-column: span 2;
   }
   .form-button {
     padding: 0.8em 1.8em;
