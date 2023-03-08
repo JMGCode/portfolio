@@ -6,19 +6,13 @@ import { FC } from "react";
 import { Hero } from "./home/hero";
 import Info from "./home/info";
 import { Works } from "./home/works";
+import styles from "./page.module.scss";
 
 interface pageProps {}
 
 const page: FC<pageProps> = ({}) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        rowGap: "64px",
-        flexDirection: "column",
-        marginBottom: "64px",
-      }}
-    >
+    <div className={styles.container}>
       <Hero />
       <About />
       <Experiences />

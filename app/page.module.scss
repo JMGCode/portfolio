@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+  margin-bottom: 128px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    gap: 64px;
+  }
+}
