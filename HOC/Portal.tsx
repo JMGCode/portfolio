@@ -17,7 +17,7 @@ const Portal: FC<Props> = ({ children }) => {
     return () => setMounted(false);
   }, []);
 
-  const portal = document.querySelector("#myportal");
+  const portal = document?.querySelector("#myportal");
   if (!portal) return null;
 
   return mounted ? createPortal(children, portal) : null;
