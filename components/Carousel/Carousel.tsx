@@ -283,7 +283,11 @@ export const Carousel: FC<Props> = ({
           >
             <Image
               alt="preview-image"
-              src={images[currentIndex - 1]}
+              src={
+                images[
+                  length > show && isRepeating ? currentIndex - 1 : currentIndex
+                ]
+              }
               fill
               style={{
                 objectFit: "contain",
