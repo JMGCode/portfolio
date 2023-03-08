@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { FC, useEffect, useState } from "react";
 
@@ -9,9 +9,10 @@ interface Props {
 }
 
 const Portal: FC<Props> = ({ children }) => {
-  const [container, setContainer] = useState<HTMLDivElement>();
+  const [container, setContainer] = useState<Element | null>();
   useEffect(() => {
-    setContainer(document.createElement("div"));
+    const portal = document?.querySelector("#myportal");
+    setContainer(portal);
   }, []);
 
   return container ? createPortal(children, container) : null;
