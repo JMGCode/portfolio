@@ -6,7 +6,6 @@ import { inter, openSans } from "./fonts";
 
 import Header from "../layout/Header/Header";
 import React from "react";
-import styles from "./layout.module.scss";
 
 export default function RootLayout({
   children,
@@ -22,10 +21,8 @@ export default function RootLayout({
       </head>
 
       <body>
-        <div className={styles.container}>
-          <Header />
-          {children}
-        </div>
+        <Header />
+        <div>{children}</div>
         <div id="myportal">{}</div>
       </body>
     </html>
