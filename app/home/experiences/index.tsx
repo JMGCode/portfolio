@@ -1,21 +1,10 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useMemo } from "react";
 import Image, { StaticImageData } from "next/image";
 
-import { Carousel } from "../../../components/Carousel/Carousel";
-//
-import Pak2go1 from "../../../public/images/pak2go/light/img1.jpeg";
-import Pak2go2 from "../../../public/images/pak2go/light/img2.jpeg";
-import Pak2go3 from "../../../public/images/pak2go/light/img3.jpeg";
-import Pak2go4 from "../../../public/images/pak2go/light/img4.jpeg";
-import Pak2go5 from "../../../public/images/pak2go/light/img5.jpeg";
-//Images
-import Sysca1 from "../../../public/images/sysca/light/img1.jpeg";
-import Sysca2 from "../../../public/images/sysca/light/img2.jpeg";
-import Sysca3 from "../../../public/images/sysca/light/img3.jpeg";
-import Sysca4 from "../../../public/images/sysca/light/img4.jpeg";
+import Pak2goGroup from "../../../public/images/pak2go/light/img-group.jpeg";
+import SyscaGroup from "../../../public/images/sysca/light/img-group.jpeg";
 import Tabs from "../../../components/Tabs/Tabs";
-//
-import Ultrazoom1 from "../../../public/images/ultrazoom/light/img1.jpeg";
+import UltrazoomGroup from "../../../public/images/ultrazoom/light/img-group.jpeg";
 import { primaryColor } from "../../../abstracts/colors";
 import styles from "./experiences.module.scss";
 
@@ -27,6 +16,7 @@ type RoleType = {
   to: string;
   responsabilities: Array<string>;
   images?: Array<StaticImageData>;
+  image: StaticImageData;
 };
 
 //unordered list
@@ -44,7 +34,7 @@ export const Experiences = () => {
           "Develop a track application using flutter with connection to the TMS backend",
           "Webscrap multiple platforms to concentrate tracking data into a single app",
         ],
-        images: [Pak2go1, Pak2go2, Pak2go3, Pak2go4, Pak2go5],
+        image: Pak2goGroup,
       },
       {
         title: "Fullstack developer",
@@ -55,7 +45,7 @@ export const Experiences = () => {
         responsabilities: [
           "Collabore with a small team of developers to develop a Management System using ReactJs on the frontend, DJango on the backend and Postgres as database",
         ],
-        images: [Ultrazoom1],
+        image: UltrazoomGroup,
       },
       {
         title: "Software Enginner",
@@ -69,7 +59,7 @@ export const Experiences = () => {
           "Implementation of DNP3 protocol for comunication via radio",
           "Development of configuration software for the RTU using windows forms",
         ],
-        images: [Sysca1, Sysca3, Sysca4, Sysca2],
+        image: SyscaGroup,
       },
     ],
     []
@@ -121,36 +111,32 @@ const Role: FC<{ role: RoleType }> = ({ role }) => {
         {from} - {to}
       </p>
       <br />
-      <div>
-        {role.images && (
-          <Carousel
-            infiniteLoop
-            autoPlay
-            intervalTime={6000}
-            images={role.images}
-          />
-        )}
-        <br />
-        <ul
-          // style={{
-          //   display: "grid",
-          //   gridTemplateColumns: "1fr 1fr",
-          //   gap: "1em",
-          // }}
-          className={styles["resp-list"]}
-        >
-          {responsabilities.map((res, idx) => {
-            return (
-              <li key={"resp-bullet" + idx}>
-                <div style={{ display: "flex", gap: "10px" }}>
-                  <div className={styles.bullet}>{"› "}</div>
-                  <p>{res}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+
+      <div className={styles["image-container"]}>
+        <Image
+          src={role.image}
+          alt={role.image.src}
+          fill
+          style={{ objectFit: "contain" }}
+          sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
+        />
       </div>
+
+      <br />
+      <ul className={styles["resp-list"]}>
+        {responsabilities.map((res, idx) => {
+          return (
+            <li key={"resp-bullet" + idx}>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <div className={styles.bullet}>{"› "}</div>
+                <p>{res}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

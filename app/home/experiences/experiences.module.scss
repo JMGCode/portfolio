@@ -53,6 +53,11 @@
 //   position: relative;
 // }
 
+.image-container {
+  position: relative;
+  height: 500px;
+}
+
 .resp-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -92,6 +97,9 @@
 
   .resp-list {
     grid-template-columns: 1fr;
+  }
+  .image-container {
+    height: 250px;
   }
 }
 

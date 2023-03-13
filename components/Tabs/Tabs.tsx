@@ -11,7 +11,6 @@ interface IProps {
   tabs: Array<tabObjType>;
 }
 const Tabs: FC<IProps> = ({ tabs }) => {
-  const [activeTab, setActiveTap] = useState(0);
   const tabRef = useRef(null);
   const [offset, setOffset] = useState<any>(null);
   const tabContainerRef = useRef(null);
@@ -32,8 +31,6 @@ const Tabs: FC<IProps> = ({ tabs }) => {
   }, []);
 
   const handleTabClick = (e: any, idx: number) => {
-    //set active tab
-    setActiveTap(idx);
     //handle indicator movement
     const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = e.target;
 
@@ -72,12 +69,19 @@ const Tabs: FC<IProps> = ({ tabs }) => {
           className={styles.indicator}
         ></span>
       </div>
-      <div className={styles.content}>
-        {tabs
-          .filter((_, idx) => idx === activeTab)
-          .map((tab, idx) => (
-            <div key={"tab-content" + tab.name + idx}>{tab.content}</div>
+      <div className={styles.window}>
+        <div
+          className={styles.wrapper}
+          style={
+            {
+              "--ind-index": offset?.index,
+            } as CSSProperties
+          }
+        >
+          {tabs.map((tab, idx) => (
+            <div className={styles.content}>{tab.content}</div>
           ))}
+        </div>
       </div>
     </div>
   );

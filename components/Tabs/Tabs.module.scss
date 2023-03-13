@@ -41,6 +41,9 @@ $tab-height-f: 4rem;
   height: $tab-height;
   color: black;
 }
+.tabs-container::-webkit-scrollbar {
+  display: none;
+}
 
 .indicator {
   position: absolute;
@@ -61,6 +64,20 @@ $tab-height-f: 4rem;
   -ms-transform: translateX(calc(var(--ind-index) * $tab-width-f));
   -o-transform: translateX(calc(var(--ind-index) * $tab-width-f));
   transform: translateX(calc(var(--ind-index) * $tab-width-f));
+}
+.window {
+  overflow-x: hidden;
+}
+
+.wrapper {
+  display: flex;
+  transition: transform 600ms ease-in-out;
+  transform: translateX(calc(var(--ind-index) * -100%));
+}
+
+.content {
+  flex: 1 0 100%;
+  overflow-x: hidden;
 }
 
 @media screen and (max-width: 600px) {
