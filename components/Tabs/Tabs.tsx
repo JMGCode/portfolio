@@ -79,7 +79,12 @@ const Tabs: FC<IProps> = ({ tabs }) => {
           }
         >
           {tabs.map((tab, idx) => (
-            <div className={styles.content}>{tab.content}</div>
+            <div
+              key={"tab-content" + tab.name + idx}
+              className={styles.content}
+            >
+              {tab.content}
+            </div>
           ))}
         </div>
       </div>

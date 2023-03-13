@@ -50,13 +50,21 @@ export const Carousel: FC<Props> = ({
     }
   }, [currentIndex, isRepeating, show, length]);
 
+  const startInterval = (dir?: "next" | "prev") => {
+    if (!autoPlay) return;
+    if (intervalRef.current) stopInterval();
+    intervalRef.current = setInterval(() => {
+      dir === "prev" ? prev() : next();
+    }, intervalTime);
+  };
+
   //Auto play
   useEffect(() => {
     if (autoPlay) {
       startInterval();
       return () => stopInterval();
     }
-  }, [autoPlay, setInterval]);
+  }, [autoPlay, setInterval, startInterval]);
 
   const pause = () => {
     if (isPaused) {
@@ -75,14 +83,6 @@ export const Carousel: FC<Props> = ({
   const stopInterval = () => {
     if (!intervalRef.current) return;
     clearInterval(intervalRef.current);
-  };
-
-  const startInterval = (dir?: "next" | "prev") => {
-    if (!autoPlay) return;
-    if (intervalRef.current) stopInterval();
-    intervalRef.current = setInterval(() => {
-      dir === "prev" ? prev() : next();
-    }, intervalTime);
   };
 
   const next = () => {
