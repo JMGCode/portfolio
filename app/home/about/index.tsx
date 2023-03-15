@@ -21,7 +21,7 @@ export const About = () => {
   return (
     <div id="about-section" className={styles.container}>
       <div className={styles.text}>
-        <h2 style={{ fontWeight: "bold" }}>About me</h2>
+        <h2 style={{ fontWeight: "bold", textAlign: "center" }}>About me</h2>
 
         <div className={styles.message}>
           <p>{` Hi I'm JmgCode, I'm a developer with 3 years of experience in React. I have a passion for creating high-quality and user-friendly software that meets the needs of my clients. `}</p>

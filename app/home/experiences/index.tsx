@@ -68,7 +68,7 @@ export const Experiences = () => {
   return (
     <div id="experience-section" className={styles.container}>
       <div className={styles["inner-container"]}>
-        <h2 style={{ fontWeight: "bold" }}>Experiences</h2>
+        <h2 style={{ fontWeight: "bold", textAlign: "center" }}>Experiences</h2>
 
         <Tabs
           tabs={roles.map((role) => ({

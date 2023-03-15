@@ -112,6 +112,13 @@
     align-items: center;
     text-align: center;
   }
+
+  .work-text p {
+    padding: 0 32px;
+    @include font-size(getFontSize(-1));
+    line-height: getLineHeight(-1);
+  }
+
   .work-tech-project-container {
     justify-content: center;
   }
