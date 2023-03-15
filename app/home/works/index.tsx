@@ -135,7 +135,7 @@ export const Works = () => {
                     return (
                       <li
                         className={styles["work-tech-project"]}
-                        key={"work-tech-project" + name + idx}
+                        key={"work-tech-project" + tech + idx}
                       >
                         {tech}
                       </li>

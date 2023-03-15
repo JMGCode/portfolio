@@ -1,4 +1,11 @@
-import { CSSProperties, FC, useEffect, useRef, useState } from "react";
+import {
+  CSSProperties,
+  FC,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Image, { StaticImageData } from "next/image";
 
 import Modal from "../Modal/Modal";
@@ -37,6 +44,18 @@ export const Carousel: FC<Props> = ({
 
   const [preview, setPreview] = useState(false);
 
+  const next = useCallback(() => {
+    if (isRepeating || currentIndex < length - show) {
+      setCurrentIndex((prevState) => prevState + 1);
+    }
+  }, [isRepeating, currentIndex, length, show]);
+
+  const prev = () => {
+    if (isRepeating || currentIndex > 0) {
+      setCurrentIndex((prevState) => prevState - 1);
+    }
+  };
+
   useEffect(() => {
     setLength(images.length);
     setIsRepeating(infiniteLoop && images.length > show);
@@ -61,10 +80,12 @@ export const Carousel: FC<Props> = ({
   //Auto play
   useEffect(() => {
     if (autoPlay) {
-      startInterval();
-      return () => stopInterval();
+      intervalRef.current = setInterval(() => {
+        next();
+      });
+      return () => clearInterval(intervalRef.current);
     }
-  }, [autoPlay]);
+  }, [autoPlay, next]);
 
   const pause = () => {
     if (isPaused) {
@@ -83,18 +104,6 @@ export const Carousel: FC<Props> = ({
   const stopInterval = () => {
     if (!intervalRef.current) return;
     clearInterval(intervalRef.current);
-  };
-
-  const next = () => {
-    if (isRepeating || currentIndex < length - show) {
-      setCurrentIndex((prevState) => prevState + 1);
-    }
-  };
-
-  const prev = () => {
-    if (isRepeating || currentIndex > 0) {
-      setCurrentIndex((prevState) => prevState - 1);
-    }
   };
 
   const handleTouchStart = (e: any) => {
