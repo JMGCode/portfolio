@@ -1,45 +1,13 @@
-import React, { FC, useMemo } from "react";
+import React, { CSSProperties, FC, useMemo } from "react";
 
 import Demo from "../../../components/Icons/demo";
 import GitHub from "../../../components/Icons/github";
-import HandClick from "../../../components/Icons/handClick";
 import Image from "next/image";
-import Spotify from "../../../public/images/works/spotify-player/light/img2.jpeg";
+import Spotify from "../../../public/images/works/spotify-player/device.jpeg";
 import { StaticImageData } from "next/image";
-import Sudoku from "../../../public/images/works/sudoku/light/img1.jpeg";
-import Sysca3 from "../../../public/images/sysca/light/img3.jpeg";
+import Sudoku from "../../../public/images/works/sudoku/device.jpeg";
 import { primaryColor } from "../../../abstracts/colors";
 import styles from "./Works.module.scss";
-
-interface IWorkImageProps {
-  id?: number | string;
-  image: StaticImageData;
-  content?: React.ReactNode;
-}
-
-const WorkImage: FC<IWorkImageProps> = ({ image, content }) => {
-  return (
-    <>
-      <div className={styles["image-container"]}>
-        <Image
-          src={image}
-          alt="project img"
-          fill
-          placeholder="blur"
-          sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-          // style={{ objectFit: "contain" }}
-        />
-        <div className={styles["img-click-icon"]}>
-          <HandClick color="white" />
-          Click me
-        </div>
-        <div className={styles.overlay}>{content}</div>
-      </div>
-    </>
-  );
-};
 
 type ProjectType = "featured" | "freelance";
 
@@ -63,18 +31,18 @@ export const Works = () => {
         techs: ["ReacJs", "Typescript", "Css"],
         img: Sudoku,
         extraContent: (
-          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+          <>
             <div style={{ cursor: "pointer" }}>
-              <a href="https://youtube.com" target={"_blank"}>
-                <Demo color="white" />
+              <a href="https://sudoku.jmgcode.com/" target={"_blank"}>
+                <Demo color={primaryColor} />
               </a>
             </div>
-            <div style={{ cursor: "pointer" }}>
+            {/* <div style={{ cursor: "pointer" }}>
               <a href="https://github.com" target={"_blank"}>
-                <GitHub color={"white"} />
+                <GitHub color={primaryColor} />
               </a>
-            </div>
-          </div>
+            </div> */}
+          </>
         ),
       },
       {
@@ -86,47 +54,26 @@ export const Works = () => {
           "ReacJs",
           "Typescript",
           "Redux Tool Kit",
-          "Css",
+          "Scss",
           "RTK Query",
           "Redux Persist",
+          "Spotify API",
+          "Spotify Web SDK Player",
         ],
         img: Spotify,
         extraContent: (
-          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+          <>
             <div style={{ cursor: "pointer" }}>
               <a href="https://youtube.com" target={"_blank"}>
-                <Demo color="white" />
+                <Demo color={primaryColor} />
               </a>
             </div>
             <div style={{ cursor: "pointer" }}>
               <a href="https://github.com" target={"_blank"}>
-                <GitHub color={"white"} />
+                <GitHub color={primaryColor} />
               </a>
             </div>
-          </div>
-        ),
-      },
-      {
-        type: "featured",
-        name: "Sudoku Game",
-        description:
-          "The application includes a feature to automatically check the player's solution for correctness, and highlights any incorrect entries.",
-        techs: ["ReacJs", "Typescript", "Css"],
-        img: Sysca3,
-
-        extraContent: (
-          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-            <div style={{ cursor: "pointer" }}>
-              <a href="https://youtube.com" target={"_blank"}>
-                <Demo color="white" />
-              </a>
-            </div>
-            <div style={{ cursor: "pointer" }}>
-              <a href="https://github.com" target={"_blank"}>
-                <GitHub color={"white"} />
-              </a>
-            </div>
-          </div>
+          </>
         ),
       },
     ],
@@ -143,62 +90,70 @@ export const Works = () => {
         </p>
       </div>
 
-      <div className={styles["main-project-container"]}>
-        {mainProjects.map((project, idx) => {
-          const { name, img, description, techs, type, extraContent } = project;
+      <div className={styles["work-container"]}>
+        {mainProjects.map((project, index) => {
+          const lvalue = (index + 1) * 2;
+          const mvalue = lvalue - 1;
+          const isOdd = index % 2;
+
           return (
-            <WorkImage
-              key={"work-img" + name + idx}
-              image={img}
-              content={
-                <div className={styles["overlay-content"]}>
-                  <p
-                    style={{
-                      color: primaryColor,
-                      fontSize: "16px",
-                    }}
-                  >
-                    {type === "featured"
-                      ? "Featured Project"
-                      : "Freelance Project"}
-                  </p>
-                  <h4 style={{ margin: "2px 0 10px 0" }}>{name}</h4>
-                  <p
-                    style={{
-                      fontSize: "18px",
-                    }}
-                  >
-                    {description}
-                  </p>
-                  <ul
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      margin: "40px 0",
-                      gap: "10px",
-                    }}
-                  >
-                    {techs.map((tech, idx) => {
-                      return (
-                        <li
-                          key={"work-tech-project" + name + idx}
-                          style={{
-                            backgroundColor: "hotpink",
-                            borderRadius: "20px",
-                            padding: "5px 15px",
-                            fontSize: "14px",
-                            fontWeight: "bold",
-                          }}
-                        >
-                          {tech}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  {extraContent}
+            <>
+              <div
+                style={{ "--order": isOdd ? lvalue : mvalue } as CSSProperties}
+                className={styles["work-img-container"]}
+              >
+                <Image
+                  fill
+                  src={project.img}
+                  style={{ objectFit: "contain" }}
+                  alt={`work-img-${project.name}`}
+                  sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
+                />
+              </div>
+
+              <div
+                style={
+                  {
+                    "--order": isOdd ? mvalue : lvalue,
+                    "--text-align": isOdd ? "start" : "end",
+                  } as CSSProperties
+                }
+                className={`${styles["work-content-container"]} ${styles["work-text"]}`}
+              >
+                <p>{project.description}</p>
+                <ul
+                  style={
+                    {
+                      "--tech-justify": isOdd ? "flex-start" : "flex-end",
+                    } as CSSProperties
+                  }
+                  className={styles["work-tech-project-container"]}
+                >
+                  {project.techs.map((tech, idx) => {
+                    return (
+                      <li
+                        className={styles["work-tech-project"]}
+                        key={"work-tech-project" + name + idx}
+                      >
+                        {tech}
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div
+                  className={styles["extra-content"]}
+                  style={
+                    {
+                      "--extra-justify": isOdd ? "flex-start" : "flex-end",
+                    } as CSSProperties
+                  }
+                >
+                  {project.extraContent}
                 </div>
-              }
-            />
+              </div>
+            </>
           );
         })}
       </div>
