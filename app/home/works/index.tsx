@@ -106,7 +106,7 @@ export const Works = () => {
                   fill
                   src={project.img}
                   style={{ objectFit: "contain" }}
-                  alt={`work-img-${project.name}`}
+                  alt={`work-img-$${index}}`}
                   sizes="(max-width: 768px) 100vw,
                   (max-width: 1200px) 50vw,
                   33vw"
