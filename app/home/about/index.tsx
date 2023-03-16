@@ -1,19 +1,27 @@
+import AntDesign from "./images/ant-design.svg";
+import Css from "./images/css.svg";
 import Image from "next/image";
 import InfiniteList from "../../../components/InfiniteList/InfiniteList";
+import Javascript from "/images/javascript.svg";
+import Node from "./images/node.svg";
+import Postgres from "./images/postgres.svg";
+import ReactJs from "./images/react.svg";
+import Tailwind from "./images/tailwind.svg";
+import Typescript from "./images/typescript.svg";
 import styles from "./about.module.scss";
 import { useMemo } from "react";
 
 export const About = () => {
   const techs = useMemo(
     () => [
-      { name: "Javascript", logo: "/images/javascript.svg" },
-      { name: "Css", logo: "/images/css.svg" },
-      { name: "ReactJs", logo: "/images/react.svg" },
-      { name: "Typecript", logo: "/images/typescript.svg" },
-      { name: "NodeJs", logo: "/images/node.svg" },
-      { name: "Postgresql", logo: "/images/postgres.svg" },
-      { name: "Tailwind", logo: "/images/tailwind.svg" },
-      { name: "Ant Design", logo: "/images/ant-design.svg" },
+      { name: "Javascript", logo: Javascript },
+      { name: "Css", logo: Css },
+      { name: "ReactJs", logo: ReactJs },
+      { name: "Typecript", logo: Typescript },
+      { name: "NodeJs", logo: Node },
+      { name: "Postgresql", logo: Postgres },
+      { name: "Tailwind", logo: Tailwind },
+      { name: "Ant Design", logo: AntDesign },
     ],
     []
   );
@@ -42,7 +50,7 @@ export const About = () => {
             return (
               <div key={"tech-list" + e.name} className={styles.item}>
                 <p>{e.name}</p>
-                <Image alt="" src={e.logo} height={50} width={50} />
+                <Image priority alt="" src={e.logo} height={50} width={50} />
               </div>
             );
           })}
