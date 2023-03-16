@@ -1,13 +1,13 @@
-import AntDesign from "./images/ant-design.svg";
-import Css from "./images/css.svg";
+import AntDesign from "../../../public/images/ant-design.svg";
+import Css from "../../../public/images/css.svg";
 import Image from "next/image";
 import InfiniteList from "../../../components/InfiniteList/InfiniteList";
-import Javascript from "/images/javascript.svg";
-import Node from "./images/node.svg";
-import Postgres from "./images/postgres.svg";
-import ReactJs from "./images/react.svg";
-import Tailwind from "./images/tailwind.svg";
-import Typescript from "./images/typescript.svg";
+import Javascript from "../../../public/images/javascript.svg";
+import Node from "../../../public/images/node.svg";
+import Postgres from "../../../public/images/postgres.svg";
+import ReactJs from "../../../public/images/react.svg";
+import Tailwind from "../../../public/images/tailwind.svg";
+import Typescript from "../../../public/images/typescript.svg";
 import styles from "./about.module.scss";
 import { useMemo } from "react";
 
