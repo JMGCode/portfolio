@@ -11,9 +11,10 @@ interface IProps {
   tabs: Array<tabObjType>;
 }
 const Tabs: FC<IProps> = ({ tabs }) => {
-  const tabRef = useRef(null);
+  const tabRef = useRef<HTMLButtonElement>(null);
   const [offset, setOffset] = useState<any>(null);
   const tabContainerRef = useRef(null);
+  const [touchPosition, setTouchPosition] = useState(null);
 
   useEffect(() => {
     if (tabRef.current) {
@@ -43,6 +44,42 @@ const Tabs: FC<IProps> = ({ tabs }) => {
     });
   };
 
+  const handleTouchStart = (e: any) => {
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+
+  const handleTouchMove = (e: any) => {
+    const touchDown = touchPosition;
+
+    if (touchDown === null) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
+
+    if (Math.abs(diff) > 5) {
+      const buttons: Array<any> = Array.from(
+        tabRef.current!.parentNode!.children
+      ).filter((child) => child.tagName === "BUTTON");
+
+      if (diff > 5) {
+        if (offset.index + 1 <= buttons.length - 1) {
+          buttons[offset.index + 1].click();
+        }
+      }
+
+      if (diff < -5) {
+        if (offset.index - 1 >= 0) {
+          buttons[offset.index - 1].click();
+        }
+      }
+    }
+
+    setTouchPosition(null);
+  };
+
   return (
     <div className={styles.container}>
       <div ref={tabContainerRef} className={styles["tabs-container"]}>
@@ -69,7 +106,11 @@ const Tabs: FC<IProps> = ({ tabs }) => {
           className={styles.indicator}
         ></span>
       </div>
-      <div className={styles.window}>
+      <div
+        className={styles.window}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
         <div
           className={styles.wrapper}
           style={
