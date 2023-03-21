@@ -69,6 +69,10 @@ const Header = () => {
 
   const handleCloseMenu = () => {
     document.body.style.overflowY = "auto";
+    const menuOverlay = document.getElementById("menu-overlay");
+    if (menuOverlay) {
+      menuOverlay.style.display = "none";
+    }
     setIsMenuOpen(false);
   };
 
@@ -77,7 +81,10 @@ const Header = () => {
       className={styles.container}
       style={{
         transform: `translateY(${
-          scrollDir === "none" || scrollDir === "up" || window.pageYOffset < 10
+          scrollDir === "none" ||
+          scrollDir === "up" ||
+          window.pageYOffset < 10 ||
+          isMenuOpen
             ? "0"
             : "-100px"
         })`,
@@ -133,6 +140,10 @@ const Header = () => {
               document.body.style.overflowY = `${
                 isMenuOpen ? "auto" : "hidden"
               }`;
+              const menuOverlay = document.getElementById("menu-overlay");
+              if (menuOverlay) {
+                menuOverlay.style.display = isMenuOpen ? "none" : "block";
+              }
               setIsMenuOpen((prev) => !prev);
             }}
             isActive={isMenuOpen}

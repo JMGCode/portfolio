@@ -6,6 +6,7 @@ import { inter, openSans } from "./fonts";
 
 import Header from "../layout/Header/Header";
 import React from "react";
+import styles from "./layout.module.scss";
 
 export default function RootLayout({
   children,
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body>
         <Header />
         <div>{children}</div>
-        <div id="myportal">{}</div>
+        <div id="menu-overlay" className={styles["menu-overlay"]} />
       </body>
     </html>
   );

@@ -19,3 +19,25 @@
 // //     gap: 64px;
 // //   }
 // // }
+
+.menu-overlay {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  display: none;
+  animation: overlayFadeIn 1200ms;
+}
+
+@keyframes overlayFadeIn {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
