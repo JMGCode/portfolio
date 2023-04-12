@@ -106,7 +106,9 @@ const Info = () => {
           ref={emailRef}
           required
         />
-        <div className={styles["col-2"]}>
+        <div
+          className={`${styles["col-2"]} ${styles["form-button-container"]}`}
+        >
           <Input
             id="details"
             label="Your Project Details"
@@ -121,7 +123,6 @@ const Info = () => {
             isSubmit
             className={`${styles["form-button"]}`}
             text=""
-            // text={buttonState === "iddle" ? "Send message" : ""}
             icon={buttonIcon[buttonState]}
             onClick={() => {}}
           />

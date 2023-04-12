@@ -94,16 +94,7 @@ const Input = forwardRef(
         <label className={styles.label} htmlFor={id}>
           {label}
         </label>
-        <div
-          style={{
-            fontSize: "0.4em",
-            color: "red",
-            padding: "0 5px",
-            position: "absolute",
-          }}
-        >
-          {error}
-        </div>
+        <div className={styles["error-msg"]}>{error}</div>
       </div>
     );
   }

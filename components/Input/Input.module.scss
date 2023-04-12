@@ -73,6 +73,13 @@
   background: transparent;
 }
 
+.error-msg {
+  font-size: 0.6em;
+  color: red;
+  padding: 0 8px;
+  position: absolute;
+}
+
 @media screen and (max-width: 600px) {
   .text-input {
     font-size: 12px;
@@ -100,5 +107,9 @@
 
   .label {
     font-size: 16px;
+  }
+
+  .error-msg {
+    font-size: 0.5em;
   }
 }

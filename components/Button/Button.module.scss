@@ -14,6 +14,8 @@
   text-overflow: ellipsis;
   overflow: hidden;
   // padding: 0.5em 1.5em;
+  height: 4.5rem;
+  justify-content: center;
   @include padding(24px 48px);
   @include font-size(getFontSize(0));
 }
@@ -65,3 +67,10 @@
   color: $black-50;
   fill: $black-50;
 }
+
+// @media screen and (max-width: 600px) {
+//   .container {
+//     height: 3.5rem;
+//     font-size: 1rem;
+//   }
+// }
