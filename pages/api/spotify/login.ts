@@ -46,12 +46,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     spotifyApi
       .authorizationCodeGrant(code)
       .then((data: any) => {
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.json({
-          accessToken: data.body.access_token,
-          refreshToken: data.body.refresh_token,
-          expiresIn: data.body.expires_in,
-        });
+        res
+          .setHeader("Access-Control-Allow-Origin", "*")
+          .setHeader("Access-Control-Allow-Methods", "POST")
+          .json({
+            accessToken: data.body.access_token,
+            refreshToken: data.body.refresh_token,
+            expiresIn: data.body.expires_in,
+          });
       })
       .catch((error: any) => {
         console.log(error);
