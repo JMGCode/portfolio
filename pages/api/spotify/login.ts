@@ -37,7 +37,7 @@ function runMiddleware(
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  await runMiddleware(req, res, cors);
+  // await runMiddleware(req, res, cors);
 
   if (req.method === "POST") {
     const { code } = req.body;
@@ -46,6 +46,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     spotifyApi
       .authorizationCodeGrant(code)
       .then((data: any) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         res.json({
           accessToken: data.body.access_token,
           refreshToken: data.body.refresh_token,
