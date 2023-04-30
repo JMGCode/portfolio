@@ -19,6 +19,7 @@ const credentials = {
 const cors = Cors({
   origin: "https://music-player.jmgcode.com",
   methods: ["POST", "GET"],
+  preflightContinue: true,
 });
 
 function runMiddleware(
