@@ -18,6 +18,7 @@ const credentials = {
 
 const cors = Cors({
   origin: "https://music-player.jmgcode.com",
+  methods: ["POST", "GET"],
 });
 
 function runMiddleware(
@@ -37,7 +38,7 @@ function runMiddleware(
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  // await runMiddleware(req, res, cors);
+  await runMiddleware(req, res, cors);
 
   if (req.method === "POST") {
     const { code } = req.body;
@@ -46,14 +47,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     spotifyApi
       .authorizationCodeGrant(code)
       .then((data: any) => {
-        res
-          .setHeader("Access-Control-Allow-Origin", "*")
-          .setHeader("Access-Control-Allow-Methods", "POST")
-          .json({
-            accessToken: data.body.access_token,
-            refreshToken: data.body.refresh_token,
-            expiresIn: data.body.expires_in,
-          });
+        res.json({
+          accessToken: data.body.access_token,
+          refreshToken: data.body.refresh_token,
+          expiresIn: data.body.expires_in,
+        });
       })
       .catch((error: any) => {
         console.log(error);
