@@ -23,24 +23,34 @@ const cors = Cors({
   preflightContinue: true,
 });
 
-function runMiddleware(
-  req: NextApiRequest,
-  res: NextApiResponse,
-  fn: Function
-) {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result: any) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
+// function runMiddleware(
+//   req: NextApiRequest,
+//   res: NextApiResponse,
+//   fn: Function
+// ) {
+//   return new Promise((resolve, reject) => {
+//     fn(req, res, (result: any) => {
+//       if (result instanceof Error) {
+//         return reject(result);
+//       }
 
-      return resolve(result);
-    });
-  });
-}
+//       return resolve(result);
+//     });
+//   });
+// }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  await runMiddleware(req, res, cors);
+  // await runMiddleware(req, res, cors);
+  if (req.method === "OPTIONS") {
+    return res
+      .status(200)
+      .setHeader("Access-Control-Allow-Origin", "*")
+      .setHeader("Access-Control-Allow-Methods", "POST")
+      .setHeader(
+        "Access-Control-Allow-Headers",
+        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+      );
+  }
 
   if (req.method === "POST") {
     const { code } = req.body;
