@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import Cors from "cors";
-
 const SpotifyWebApi = require("spotify-web-api-node");
 
 type Data = {
@@ -16,42 +14,7 @@ const credentials = {
   clientSecret: process.env.CLIENT_SECRET,
 };
 
-const cors = Cors({
-  origin: "https://music-player.jmgcode.com",
-  methods: ["POST", "GET"],
-  allowedHeaders: "Content-Type",
-  preflightContinue: true,
-});
-
-// function runMiddleware(
-//   req: NextApiRequest,
-//   res: NextApiResponse,
-//   fn: Function
-// ) {
-//   return new Promise((resolve, reject) => {
-//     fn(req, res, (result: any) => {
-//       if (result instanceof Error) {
-//         return reject(result);
-//       }
-
-//       return resolve(result);
-//     });
-//   });
-// }
-
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  // await runMiddleware(req, res, cors);
-  if (req.method === "OPTIONS") {
-    return res
-      .status(200)
-      .setHeader("Access-Control-Allow-Origin", "*")
-      .setHeader("Access-Control-Allow-Methods", "POST")
-      .setHeader(
-        "Access-Control-Allow-Headers",
-        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-      );
-  }
-
   if (req.method === "POST") {
     const { code } = req.body;
     const spotifyApi = new SpotifyWebApi(credentials);
