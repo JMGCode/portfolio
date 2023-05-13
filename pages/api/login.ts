@@ -28,6 +28,7 @@ const cors = initMiddleware(
 );
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  return res.status(200);
   // Run cors
   await cors(req, res);
   if (req.method === "POST") {
