@@ -1,8 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import Cors from "cors";
-import initMiddleware from "../../lib/init-middleware";
-
 const SpotifyWebApi = require("spotify-web-api-node");
 
 type Data = {
@@ -17,20 +14,7 @@ const credentials = {
   clientSecret: process.env.CLIENT_SECRET,
 };
 
-// Initialize the cors middleware
-const cors = initMiddleware(
-  // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
-  Cors({
-    // Only allow requests with GET, POST and OPTIONS
-    origin: "https://music-player.jmgcode.com/",
-    methods: ["POST", "OPTIONS"],
-  })
-);
-
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  return res.status(200);
-  // Run cors
-  await cors(req, res);
   if (req.method === "POST") {
     const { code } = req.body;
     const spotifyApi = new SpotifyWebApi(credentials);
