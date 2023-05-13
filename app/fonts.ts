@@ -1,4 +1,4 @@
-import { Inter, Open_Sans } from "@next/font/google";
+import { Inter, Open_Sans } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
