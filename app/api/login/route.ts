@@ -32,7 +32,16 @@ export async function POST(request: Request) {
   //     });
   //   });
   console.log("login post request");
-  return new Response("login --- all good", { status: 200 });
+
+  const origin = request.headers.get("origin");
+  return new NextResponse("login -- all good with headers", {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": origin || "*",
+      "Content-Type": "plain/text",
+    },
+  });
+  // return new Response("login --- all good", { status: 200 });
 }
 
 export async function OPTIONS() {
