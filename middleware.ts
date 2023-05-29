@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 const allowedOrigins =
   process.env.NODE_ENV === "production"
-    ? ["https://music-player.jmgcode.com"]
-    : ["http://localhost:3000", "https://music-player.jmgcode.com"];
+    ? ["https://music-player.jmgcode.com/"]
+    : ["http://localhost:3000/", "https://music-player.jmgcode.com/"];
 
 export function middleware(req: Request) {
   const origin = req.headers.get("origin");
