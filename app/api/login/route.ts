@@ -18,10 +18,24 @@ export async function POST(request: Request) {
     .then((data: any) => {
       const { access_token, refresh_token, expires_in } = data.body;
 
-      return NextResponse.json({
+      // return NextResponse.json({
+      //   accessToken: access_token,
+      //   refreshToken: refresh_token,
+      //   expiresIn: expires_in,
+      // });
+      const bod = JSON.stringify({
         accessToken: access_token,
         refreshToken: refresh_token,
         expiresIn: expires_in,
+      });
+
+      return new Response(bod, {
+        status: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        },
       });
     })
     .catch((error: any) => {
