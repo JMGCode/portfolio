@@ -31,26 +31,29 @@ export async function POST(request: Request) {
   //       statusText: "Bad Request",
   //     });
   //   });
-  console.log("login post request");
 
   const origin = request.headers.get("origin");
+  console.log("login post request", origin);
+
   return new NextResponse("login -- all good with headers", {
     status: 200,
     headers: {
       "Access-Control-Allow-Origin": origin || "*",
-      "Content-Type": "plain/text",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Content-Type": "text/plain",
     },
   });
   // return new Response("login --- all good", { status: 200 });
 }
 
-export async function OPTIONS() {
+export async function OPTIONS(request: Request) {
   console.log("login options request");
+  const origin = request.headers.get("origin");
   return new Response(null, {
     status: 200,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Origin": origin || "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
     },
   });
