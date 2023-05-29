@@ -50,7 +50,7 @@ export async function OPTIONS(request: Request) {
   console.log("login options request");
   const origin = request.headers.get("origin");
   return new Response(null, {
-    status: 200,
+    status: 204,
     headers: {
       "Access-Control-Allow-Origin": origin || "*",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
