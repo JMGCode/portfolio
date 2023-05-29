@@ -31,10 +31,12 @@ export async function POST(request: Request) {
   //       statusText: "Bad Request",
   //     });
   //   });
+  console.log("login post request");
   return new Response("login --- all good", { status: 200 });
 }
 
 export async function OPTIONS() {
+  console.log("login options request");
   return new Response(null, {
     status: 200,
     headers: {

@@ -6,7 +6,7 @@ const allowedOrigins =
 
 export function middleware(req: Request) {
   const origin = req.headers.get("origin");
-  console.log(origin);
+  console.log("middleware origin: ", origin);
 
   //to block postman an other tools that bypass cors
   //add !origin to the if condition
