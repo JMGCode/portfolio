@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import cors from "../../../lib/cors";
 
 const SpotifyWebApi = require("spotify-web-api-node");
 
@@ -29,14 +30,21 @@ export async function POST(request: Request) {
         expiresIn: expires_in,
       });
 
-      return new Response(bod, {
-        status: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        },
-      });
+      // return new Response(bod, {
+      //   status: 200,
+      //   headers: {
+      //     "Access-Control-Allow-Origin": "*",
+      //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      //     "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      //   },
+      // });
+      return cors(
+        request,
+        new Response(bod, {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        })
+      );
     })
     .catch((error: any) => {
       console.log(error);
@@ -47,13 +55,22 @@ export async function POST(request: Request) {
     });
 }
 
-export async function OPTIONS() {
-  return new Response("all good", {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-    },
-  });
+// export async function OPTIONS() {
+//   return new Response("all good", {
+//     status: 200,
+//     headers: {
+//       "Access-Control-Allow-Origin": "*",
+//       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+//       "Access-Control-Allow-Headers": "Content-Type, Authorization",
+//     },
+//   });
+// }
+
+export async function OPTIONS(request: Request) {
+  return cors(
+    request,
+    new Response(null, {
+      status: 204,
+    })
+  );
 }
