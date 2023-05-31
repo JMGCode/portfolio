@@ -24,7 +24,11 @@ export function middleware(req: Request) {
   if (origin && !allowedOrigins.includes(origin)) {
     return new NextResponse(null, {
       status: 400,
-      statusText: "Bad Request",
+      statusText: `Bad Request, origin not allowed,curr origin: ${origin} allowed origins: ${JSON.stringify(
+        {
+          allowed: allowedOrigins,
+        }
+      )}`,
       headers: {
         "Content-Type": "text/plain",
       },
