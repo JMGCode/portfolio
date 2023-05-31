@@ -31,3 +31,16 @@ export async function POST(request: Request) {
     },
   });
 }
+
+export async function OPTIONS(request: Request) {
+  console.log("hello options request");
+  const origin = request.headers.get("origin");
+  return new Response("hello options OK", {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": origin || "*",
+      "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+}

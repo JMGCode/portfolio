@@ -33,3 +33,15 @@ export async function POST(request: Request) {
       });
     });
 }
+
+export async function OPTIONS(request: Request) {
+  const origin = request.headers.get("origin");
+  return new Response("refresh options OK", {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": origin || "*",
+      "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+}
