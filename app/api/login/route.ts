@@ -23,12 +23,12 @@ export async function POST(request: Request) {
     }),
     {
       status: 200,
-      headers: {
-        "Access-Control-Allow-Origin": origin || "*",
-        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Content-Type": "application/json",
-      },
+      // headers: {
+      //   "Access-Control-Allow-Origin": origin || "*",
+      //   "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+      //   "Access-Control-Allow-Headers": "Content-Type",
+      //   "Content-Type": "application/json",
+      // },
     }
   );
 
