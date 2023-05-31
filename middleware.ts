@@ -6,7 +6,7 @@ const allowedOrigins =
 
 export function middleware(req: Request) {
   const origin = req.headers.get("origin");
-  console.log("middleware origin: ", origin);
+  console.log("middleware origin updated: ", origin);
 
   if (req.method === "OPTIONS") {
     return new Response(`middleware options OK origin: ${origin}`, {
