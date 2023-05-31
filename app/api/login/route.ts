@@ -11,16 +11,20 @@ const credentials = {
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
   // const { code } = await request.json();
+  const jj = await request.json();
 
-  return new NextResponse(`login -- without spotify library  `, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": origin || "*",
-      "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Content-Type": "text/plain",
-    },
-  });
+  return new NextResponse(
+    `login -- without spotify library ${JSON.stringify(jj)} `,
+    {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": origin || "*",
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Content-Type": "text/plain",
+      },
+    }
+  );
 
   // const spotifyApi = new SpotifyWebApi(credentials);
 
