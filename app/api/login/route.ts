@@ -14,23 +14,23 @@ export async function POST(request: Request) {
 
   const spotifyApi = new SpotifyWebApi(credentials);
 
-  // return new NextResponse(
-  //   JSON.stringify({
-  //     code,
-  //     testToken: "test_token",
-  //     testRefresh: "test_refresh",
-  //     testExpiresIn: 123455,
-  //   }),
-  //   {
-  //     status: 200,
-  //     headers: {
-  //       "Access-Control-Allow-Origin": origin || "*",
-  //       "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-  //       "Access-Control-Allow-Headers": "Content-Type",
-  //       "Content-Type": "application/jsond",
-  //     },
-  //   }
-  // );
+  return new NextResponse(
+    JSON.stringify({
+      code,
+      testToken: "test_token",
+      testRefresh: "test_refresh",
+      testExpiresIn: 123455,
+    }),
+    {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": origin || "*",
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Content-Type": "application/jsond",
+      },
+    }
+  );
 
   spotifyApi
     .authorizationCodeGrant(code)
