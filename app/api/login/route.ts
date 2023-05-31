@@ -93,7 +93,7 @@ export async function OPTIONS(request: Request) {
   return new Response("login options OK", {
     status: 200,
     headers: {
-      "Access-Control-Allow-Origin": origin || "*",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
       "Access-Control-Allow-Headers": "Content-Type",
     },
