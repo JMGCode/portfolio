@@ -12,12 +12,12 @@ export async function POST(request: Request) {
   const origin = request.headers.get("origin");
   const { code } = await request.json();
 
-  // const spotifyApi = new SpotifyWebApi(credentials);
+  const spotifyApi = new SpotifyWebApi(credentials);
 
   // console.log(
   //   "login from post login function after Swebapi",
   //   JSON.stringify(credentials)
-  return new NextResponse(`login -- without spotify library ${code} `, {
+  return new NextResponse(`login no use -- with spotify library ${code} `, {
     status: 200,
     headers: {
       "Access-Control-Allow-Origin": origin || "*",
