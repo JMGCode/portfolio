@@ -9,35 +9,48 @@ const credentials = {
 };
 
 export async function POST(request: Request) {
-  const { code } = await request.json();
+  // const { code } = await request.json();
 
-  const spotifyApi = new SpotifyWebApi(credentials);
+  // const spotifyApi = new SpotifyWebApi(credentials);
 
-  console.log(
-    "login from post login function after Swebapi",
-    JSON.stringify(credentials)
-  );
+  // console.log(
+  //   "login from post login function after Swebapi",
+  //   JSON.stringify(credentials)
+  // );
 
-  spotifyApi
-    .authorizationCodeGrant(code)
-    .then((data: any) => {
-      const { access_token, refresh_token, expires_in } = data.body;
+  // spotifyApi
+  //   .authorizationCodeGrant(code)
+  //   .then((data: any) => {
+  //     const { access_token, refresh_token, expires_in } = data.body;
 
-      console.log("login sucess message", JSON.stringify(data));
+  //     console.log("login sucess message", JSON.stringify(data));
 
-      return NextResponse.json({
-        accessToken: access_token,
-        refreshToken: refresh_token,
-        expiresIn: expires_in,
-      });
-    })
-    .catch((error: any) => {
-      console.log(error);
-      return new Response(null, {
-        status: 400,
-        statusText: "Bad Request",
-      });
-    });
+  //     return NextResponse.json({
+  //       accessToken: access_token,
+  //       refreshToken: refresh_token,
+  //       expiresIn: expires_in,
+  //     });
+  //   })
+  //   .catch((error: any) => {
+  //     console.log(error);
+  //     return new Response(null, {
+  //       status: 400,
+  //       statusText: "Bad Request",
+  //     });
+  //   });
+
+  const origin = request.headers.get("origin");
+  console.log("login post request", origin);
+
+  return new NextResponse("login -- all good with headers", {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": origin || "*",
+      "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Content-Type": "text/plain",
+    },
+  });
 }
 
 export async function OPTIONS(request: Request) {
