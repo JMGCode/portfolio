@@ -40,30 +40,11 @@ export async function POST(request: Request) {
     .then((data: any) => {
       const { access_token, refresh_token, expires_in } = data.body;
 
-      console.log("login sucess message", JSON.stringify(data));
-
-      // return new NextResponse(
-      //   JSON.stringify({
-      //     accessToken: access_token,
-      //     refreshToken: refresh_token,
-      //     expiresIn: expires_in,
-      //   }),
-      //   {
-      //     status: 200,
-      //     headers: {
-      //       "Access-Control-Allow-Origin": origin || "*",
-      //       "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-      //       "Access-Control-Allow-Headers": "Content-Type",
-      //       "Content-Type": "application/json",
-      //     },
-      //   }
-      // );
-
       return new NextResponse(
         JSON.stringify({
-          accessToken: access_token,
-          refreshToken: refresh_token,
-          expiresIn: expires_in,
+          accessTokens: access_token,
+          refreshTokens: refresh_token,
+          expiresIns: expires_in,
         }),
         {
           status: 200,
@@ -80,7 +61,7 @@ export async function POST(request: Request) {
       console.log(error);
       return new Response(null, {
         status: 400,
-        statusText: "Bad Request",
+        statusText: "Bad Request, spotify",
       });
     });
 
