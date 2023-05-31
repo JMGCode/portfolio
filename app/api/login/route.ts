@@ -10,9 +10,9 @@ const credentials = {
 
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
-  const { code } = await request.json();
+  // const { code } = await request.json();
 
-  return new NextResponse(`login -- without spotify library ${code}`, {
+  return new NextResponse(`login -- without spotify library  `, {
     status: 200,
     headers: {
       "Access-Control-Allow-Origin": origin || "*",
