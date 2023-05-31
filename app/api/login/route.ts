@@ -38,12 +38,15 @@ export async function POST(request: Request) {
       // const { access_token, refresh_token, expires_in } = data.body;
 
       return new NextResponse(
-        JSON.stringify({ data: data?.body || "empty" }),
+        // JSON.stringify({ data: data?.body || "empty" }),
         // JSON.stringify({
         //   accessTokens: access_token,
         //   refreshTokens: refresh_token,
         //   expiresIns: expires_in,
         // }),
+        JSON.stringify({
+          data: "algo",
+        }),
         {
           status: 200,
         }
