@@ -17,15 +17,22 @@ export async function POST(request: Request) {
   // console.log(
   //   "login from post login function after Swebapi",
   //   JSON.stringify(credentials)
-  return new NextResponse(JSON.stringify({ code }), {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": origin || "*",
-      "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Content-Type": "application/jsond",
-    },
-  });
+  return new NextResponse(
+    JSON.stringify({
+      accessToken: "test_token",
+      refreshToken: "test_refresh",
+      expiresIn: 123455,
+    }),
+    {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": origin || "*",
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Content-Type": "application/jsond",
+      },
+    }
+  );
   // );
 
   // spotifyApi
