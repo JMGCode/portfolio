@@ -28,8 +28,16 @@ export async function POST(request: Request) {
 
   try {
     const data = await spotifyApi.authorizationCodeGrant(code);
+    const { access_token, refresh_token, expires_in } = data.body;
     console.log("this data from spotify auth", data);
-    return new NextResponse("its ok", { status: 200 });
+    return new NextResponse(
+      JSON.stringify({
+        accessToken: access_token,
+        refreshToken: refresh_token,
+        expiresIn: expires_in,
+      }),
+      { status: 200 }
+    );
   } catch (error) {
     console.error(error);
     return new Response(null, {
