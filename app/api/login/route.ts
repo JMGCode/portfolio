@@ -13,10 +13,17 @@ export async function POST(request: Request) {
 
   const spotifyApi = new SpotifyWebApi(credentials);
 
+  console.log(
+    "login from post login function after Swebapi",
+    JSON.stringify(credentials)
+  );
+
   spotifyApi
     .authorizationCodeGrant(code)
     .then((data: any) => {
       const { access_token, refresh_token, expires_in } = data.body;
+
+      console.log("login sucess message", JSON.stringify(data));
 
       return NextResponse.json({
         accessToken: access_token,
@@ -31,20 +38,6 @@ export async function POST(request: Request) {
         statusText: "Bad Request",
       });
     });
-
-  // const origin = request.headers.get("origin");
-  // console.log("login post request", origin);
-
-  // return new NextResponse("login -- all good with headers", {
-  //   status: 200,
-  //   headers: {
-  //     "Access-Control-Allow-Origin": origin || "*",
-  //     "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-  //     "Access-Control-Allow-Headers": "Content-Type",
-  //     "Content-Type": "text/plain",
-  //   },
-  // });
-  // return new Response("login --- all good", { status: 200 });
 }
 
 export async function OPTIONS(request: Request) {
