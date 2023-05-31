@@ -35,7 +35,7 @@ export async function POST(request: Request) {
   spotifyApi
     .authorizationCodeGrant(code)
     .then((data: any) => {
-      const { access_token, refresh_token, expires_in } = data.body;
+      // const { access_token, refresh_token, expires_in } = data.body;
 
       return new NextResponse(
         JSON.stringify({ data: data?.body || "empty" }),
@@ -46,12 +46,6 @@ export async function POST(request: Request) {
         // }),
         {
           status: 200,
-          headers: {
-            "Access-Control-Allow-Origin": origin || "*",
-            "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-            "Access-Control-Allow-Headers": "Content-Type",
-            "Content-Type": "application/json",
-          },
         }
       );
     })
