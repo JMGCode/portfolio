@@ -64,7 +64,7 @@ export const Works = () => {
         extraContent: (
           <>
             <div style={{ cursor: "pointer" }}>
-              <a href="https://youtube.com" target={"_blank"}>
+              <a href="https://music-player.jmgcode.com/" target={"_blank"}>
                 <Demo color={primaryColor} />
               </a>
             </div>
