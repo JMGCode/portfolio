@@ -74,7 +74,7 @@ const Info = () => {
       style={{ position: "relative" }}
     >
       <div className={styles.text}>
-        <h2 className="font-medium-bold">{`Go a project in mind?`}</h2>
+        <h2 className="font-medium-bold">{`Got a project in mind?`}</h2>
         <p>
           {`Use the form to give me as much detail as possible and I'll get back to you as soon as I can.`}
         </p>
