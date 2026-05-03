@@ -68,11 +68,11 @@ export const Works = () => {
                 <Demo color={primaryColor} />
               </a>
             </div>
-            <div style={{ cursor: "pointer" }}>
+            {/* <div style={{ cursor: "pointer" }}>
               <a href="https://github.com" target={"_blank"}>
                 <GitHub color={primaryColor} />
               </a>
-            </div>
+            </div> */}
           </>
         ),
       },

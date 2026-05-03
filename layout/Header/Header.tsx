@@ -48,11 +48,11 @@ const Header = () => {
         name: "work",
         icon: <WorkIcon color={primaryColor} />,
       },
-      {
-        id: "contact-section",
-        name: "contact",
-        icon: <ContactIcon color={primaryColor} />,
-      },
+      // {
+      //   id: "contact-section",
+      //   name: "contact",
+      //   icon: <ContactIcon color={primaryColor} />,
+      // },
     ],
     []
   );
@@ -101,7 +101,7 @@ const Header = () => {
           sizes="(max-width: 768px) 100px,150px"
         />
       </div>
-      <div className={styles["nav-container"]}>
+      {/* <div className={styles["nav-container"]}>
         <div
           className={`${styles["nav-link-container"]} ${
             isMenuOpen ? styles["menu-active"] : ""
@@ -149,7 +149,7 @@ const Header = () => {
             isActive={isMenuOpen}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

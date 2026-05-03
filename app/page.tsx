@@ -4,7 +4,6 @@ import { About } from "./home/about";
 import { Experiences } from "./home/experiences";
 import { FC } from "react";
 import { Hero } from "./home/hero";
-import Info from "./home/info";
 import { Works } from "./home/works";
 import styles from "./page.module.scss";
 
@@ -17,7 +16,6 @@ const page: FC<pageProps> = ({}) => {
       <About />
       <Experiences />
       <Works />
-      <Info />
     </div>
   );
 };
